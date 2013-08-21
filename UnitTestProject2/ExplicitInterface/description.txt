@@ -1,0 +1,29 @@
+﻿En este ejemplo intento explicar la siguienet situación
+     
+Tengo un objeto del dominio con muchos "roles". Hay un cierto método que solo se debería
+llamar si el objeto del dominio (agregado) ha sido cargado (fetched) de una manera determinada.
+     
+En este caso el ejemplo es el método Publish(). La clase localization NO tiene otros métodos 
+por simplicidad del ejemplo.
+     
+Entonces tenemos un problema. Cualquiera que instancie la clase Localization podría llamar al
+método Publish sin haber cargado correctamente por lo que podríamos producir una violación en las
+reglas / invariantes del dominio. 
+     
+La implementación explícita de la interfaz nos ayuda en gran medida a solucionar esto 
+(un usuario maligno podría hacerlo igualmente, pero ya no se puede hacer "sin querer")
+     
+1 -Hacemos una interfaz para la operación en cuestión
+2- Implementamos el método como implementación explícita de la interfaz
+
+
+De esta manera SOLO se puede llamar a este método cuando a travez de la interfaz.
+
+Entonces en nuestro ORM / Infraestructura tendremos un método 
+
+
+Esto es una buena herramienta para completar el concepto de "Make Roles explicit" / Interface Seggregation,
+Object Role Modeling
+
+http://www.slideshare.net/deimos/udi-dahan-intentions-and-interfaces
+http://www.infoq.com/presentations/Making-Roles-Explicit-Udi-Dahan

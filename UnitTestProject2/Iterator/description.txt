@@ -1,0 +1,3 @@
+﻿Ejemplo de como crear un iterador sobre un objeto complejo (agregado)
+Este caso es útil sobre todo para el tema de refrescos de EF pero en el fondo encapsular un recorrido por todos
+los objetos del agregado puede ser útil en otros casos (ej: clonación, etc)

@@ -1,0 +1,22 @@
+﻿Problema:
+
+Layered Arquitecture.
+- Application: Punto de entrada / casos de uso
+- Dominio: Reglas del dominio / negocio
+
+Disclaimer. Si bien en el ejemplo utilizo una Factory porque se trata de una creación, se podría extrapolar perfectamente
+si en lugar de una Factory utilizaramos un Domain Service para otra gestión
+
+Tenemos un objeto Content que tiene Localizaciones. Crear localización es un proceso complejo y requiere un
+objeto factory concreto (LocalizationFactory) para encapsular lógica compleja, dependencias, etc
+
+Después de la creación hay que añadir la localización al contenido.
+
+Muestro dos ejemplos de como resolver este problema.
+
+El código muestra una manera de resolver el problema haciendo la API lo más sencilla de utilizar y lo menos 
+"error prone" posible
+
+Uno CanBeImproved que creo que es buen código pero podría ser más "Error prone" (explicación deltro del cs)
+
+El otro Improved mejora el aspecto y creo que es una implementación más elegante. 
