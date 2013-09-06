@@ -58,8 +58,10 @@
   <ItemGroup>
     <Compile Include="Concurrency\TestDbContext.cs" />
     <Compile Include="Concurrency\ConcurrencyTest1.cs" />
+    <Compile Include="CovarianceContraVariance\CovarianceContraVarianceTest.cs" />
     <Compile Include="DomainFactoryInjection\CanBeImproved\CanBeImproved.cs" />
     <Compile Include="DomainFactoryInjection\Improved\Improved.cs" />
+    <Compile Include="Linq\GroupByTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Iterator\IteratorTest1.cs" />
     <Compile Include="EFRefresh\UnitTest3.cs" />

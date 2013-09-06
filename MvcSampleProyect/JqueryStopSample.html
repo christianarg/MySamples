@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    
+    <style>
+        .elMostrador {
+            width: 100px;
+            border: 1px solid;
+            cursor: default;
+        }
+
+        .elMuestrate {
+            display: none; background-color: blue; color: white; width: 200px; height: 80px;
+        }
+    </style>
+</head>
+    <body>
+        
+        <h1>ConSetTimeout</h1>
+        <div id="mostrador" class="elMostrador">En el hover de esto se muestra lo otro</div>
+
+        <div id="muestrate" class="elMuestrate">Quiero que se pare el hover</div>
+    
+        <script>
+
+            var timer;
+            $(document).ready(function () {
+                $('#mostrador').hover(ShowMuestrate, HideMuestrate);
+
+                $('#muestrate').hover(StopHide, HideMuestrate);
+            });
+            
+            function StopHide(parameters) {
+                clearTimeout(timer);
+            }
+
+
+            function ShowMuestrate(parameters) {
+                $('#muestrate').show();
+            }
+
+            function HideMuestrate(parameters) {
+                clearTimeout(timer);
+                timer = setTimeout(function () { $('#muestrate').hide(50); }, 1500);
+
+            }
+        </script>
+        <br/>
+        <br/>
+        <br/>
+         <h1>ConAnimateStoyDelay</h1>
+            <div id="elTextoQueMuestraLaBarra" class="elMostrador">En el hover de esto se muestra lo otro</div>
+            <div id="laBarraAMostrar" class="elMuestrate">Quiro que se pare el hover</div>
+        
+        <script>
+            $(document).ready(function () {
+                // En el hover del texto, mostramos / ocultamos la barra
+                $('#elTextoQueMuestraLaBarra').hover(ShowMuestrateA, HideMuestrateA);
+                $('#laBarraAMostrar').hover(StopHideA, HideMuestrateA);
+            });
+
+            function StopHideA(parameters) {
+                $(this).stop({ clearQueue: true }); // true
+            }
+
+            function ShowMuestrateA(parameters) {
+                $('#laBarraAMostrar').show();
+            }
+
+            function HideMuestrateA(parameters) {
+                // Impresindible primer stop http://bxcollective.com/jquery-prevent-queue-buildup-with-hover-and-animations/
+                // y ponerle un parámetro al hide, sino no entra en la cola de efectos
+                // http://blog.bigbinary.com/2010/02/02/understanding-jquery-effects-queue.html
+                $('#laBarraAMostrar').stop().delay(1000).hide(1);
+            }
+        </script>
+        
+    </body>
+</html>
