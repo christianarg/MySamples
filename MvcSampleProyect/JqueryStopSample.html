@@ -65,7 +65,7 @@
 
         function HideMuestrate(parameters) {
             clearTimeout(timer);
-            timer = setTimeout(function () { $('#muestrate').hide(50); }, 1500);
+            timer = setTimeout(function () { $('#muestrate').hide(); }, 1500);
 
         }
     </script>
@@ -97,14 +97,18 @@
         }
 
         function ShowMuestrateA(parameters) {
-            $('#laBarraAMostrar').show();
+            $('#laBarraAMostrar')
+                .show();
         }
 
         function HideMuestrateA(parameters) {
             // Impresindible primer stop http://bxcollective.com/jquery-prevent-queue-buildup-with-hover-and-animations/
             // y ponerle un parámetro al hide, sino no entra en la cola de efectos
             // http://blog.bigbinary.com/2010/02/02/understanding-jquery-effects-queue.html
-            $('#laBarraAMostrar').stop().delay(1000).hide(1);
+            $('#laBarraAMostrar')
+                .stop()
+                .delay(1000)
+                .hide(1);
         }
     </script>
 

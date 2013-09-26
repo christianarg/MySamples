@@ -1,0 +1,1 @@
+﻿var javascript2 = 'javascript2';

@@ -1,0 +1,1 @@
+﻿var javascript1 = "javascript1"
