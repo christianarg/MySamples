@@ -1,0 +1,64 @@
+﻿@*Ejemplos que muestran el comportamiento (algo hijoputa) de las propiedades ViewBag del controlador / vista,
+ViewContext y HtmlHelper
+
+Cada vez que se llama a uno de estos, CREA un nuevo ViewDataDictionary con los valores del anterior.
+(esto lo tuve que mirar con el Reflector)
+
+Cuando lo piensas tiene sentido, porque lo que intentan es que cada nuevo "contexto" no afecte al anterior
+Lo malo es que si no sabes este comportamiento, puede dar resultados bastante inesperados*@
+
+
+@*@model dynamic*@
+<style>
+    .bloquecillo {
+        /*float:left;*/
+        border:1px solid black;
+        margin: 1px;
+    }
+    .clear {
+        clear:both;
+    }
+</style>
+@{
+    Html.ViewBag.FromHtmlVieweBag = "FromHtmlVieweBag";
+    ViewBag.FromView = "FromView";
+}
+
+<h2>The Index</h2>
+
+<div class="bloquecillo">
+    <h3>ViewBag</h3>
+
+    <div>FromController: @ViewBag.FromController</div>
+    <div>FromView: @ViewBag.FromView</div>
+    <div>FromHtmlVieweBag: @ViewBag.FromHtmlVieweBag</div>
+    <br />
+</div>
+
+<div class="bloquecillo">
+    <h3>Html.ViewBag</h3>
+
+    <div>FromController: @Html.ViewBag.FromController</div>
+    <div>FromView: @Html.ViewBag.FromView</div>
+    <div>FromHtmlVieweBag: @Html.ViewBag.FromHtmlVieweBag</div>
+    <br/>
+</div>
+
+<div class="bloquecillo">
+    <h3>Html.ViewContext.ViewBag</h3>
+
+    <div>FromController: @Html.ViewContext.ViewBag.FromController</div>
+    <div>FromView: @Html.ViewContext.ViewBag.FromView</div>
+    <div>FromHtmlVieweBag: @Html.ViewContext.ViewBag.FromHtmlVieweBag</div>
+    <br/>
+</div>
+
+@*<div class="clear"></div>
+<hr/>
+
+<h2>RenderPartial</h2>
+@{Html.RenderPartial("ThePartial");}
+
+<h2>RenderAction</h2>
+
+@{Html.RenderAction("ThePartial");}*@

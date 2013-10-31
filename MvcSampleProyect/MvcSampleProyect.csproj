@@ -118,20 +118,28 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="Controllers\ViewContextViewData\ViewContextViewDataController.cs" />
+    <Compile Include="Controllers\ViewContextViewDataWithPartial\ViewContextViewDataWithPartialController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Extensions.cs" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="buscarElementosConUnCssEspecifico.html" />
+    <Content Include="JqueryAddRemoveSetTimeout.html" />
     <Content Include="Global.asax" />
     <Content Include="HtmlPositions.html" />
+    <Content Include="jqueryHas.html" />
     <Content Include="JqueryStopSample.html" />
     <None Include="Scripts\jquery-2.0.3.intellisense.js" />
-    <Content Include="outline.html" />
+    <Content Include="OtheroutlineAndOverFlow.html" />
+    <Content Include="outlineAndOverFlow.html" />
+    <Content Include="outlineOffsetParaIeConJQuery.html" />
     <Content Include="Scripts\JavaScript1.js" />
     <Content Include="Scripts\JavaScript2.js" />
     <Content Include="Scripts\jquery-2.0.3.js" />
@@ -145,10 +153,12 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Scripts\jquery-2.0.3.min.map" />
+    <Content Include="Views\ViewContextViewDataWithPartial\Index.cshtml" />
+    <Content Include="Views\ViewContextViewDataWithPartial\ThePartial.cshtml" />
+    <Content Include="Views\ViewContextViewData\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
@@ -170,9 +180,11 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerPort>63721</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:23351/</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://localhost:23351/</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>

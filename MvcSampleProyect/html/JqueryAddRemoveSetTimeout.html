@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Ejemplo de como cancelar un hide</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+    <style>
+        body
+        {
+            font-family: Verdana;
+        }
+
+        .elMostrador
+        {
+            width: 600px;
+            border: 1px solid;
+            cursor: default;
+        }
+
+        .elMuestrate
+        {
+            display: none;
+            background-color: blue;
+            color: white;
+            width: 600px;
+            height: 80px;
+            position:absolute;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Crear y eliminar elementos de la página con Delay</h1>
+
+
+    <h2>Con SetTimeout "normal"</h2>
+
+    <div>
+        Este ejemplo muestra como cancelar un hide de dos maneras. Primero con settimeoutNormal<br />
+        El handicap en este caso es que hay que guardarnos el timer en una variable (o data)<br />
+        y cuando hay muchos en la página puede ser "molesto" de gestionar<br />
+    </div>
+    <br />
+    <div id="mostrador" class="elMostrador">Si pones el mouse aquí se muestra la capa, si sales se oculta</div>
+
+    <div id="muestrate" class="elMuestrate">Si pones el mouse aquí, se cancela el ocultar. Si sales se oculta</div>
+
+    <script>
+        
+        Ocultador = function (options) {
+            this.timer = null;
+            this.jmostrador = options.jmostrador;
+            this.showFunction = options.showFunction;
+            this.hideFunction = options.hideFunction;
+        };
+        Ocultador.prototype = {
+            activate: function () {
+                this.jmostrador.hover(showFunction, hideFunction);
+            }
+        };
+
+        var timer;
+        $(document).ready(function () {
+            $('#mostrador').hover(ShowMuestrate, HideMuestrate);
+
+            $('#muestrate').hover(StopHide, HideMuestrate);
+        });
+
+        function StopHide(parameters) {
+            clearTimeout(timer);
+        }
+
+
+        function ShowMuestrate(parameters) {
+            $('#muestrate').show();
+        }
+
+        function HideMuestrate(parameters) {
+            clearTimeout(timer);
+            timer = setTimeout(function () { $('#muestrate').hide(); }, 1500);
+
+        }
+    </script>
+
+</body>
+</html>

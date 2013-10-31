@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <style>
+        .box
+        {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            margin: 100px;
+            background-color: blue;
+            color:white;
+        }
+
+        .box:after
+        {
+            content: "";
+            position: absolute;
+            top:  4px;
+            left: 4px;
+            display: block;
+            width: 90px;
+            height: 90px;
+            border: 2px solid red;
+        }
+
+        #pepito:after {
+            /*content: "hola mostro";*/
+           /*content: attr(data-content) ' any other text you may want';*/
+            /*width: attr(data-width px);*/
+            /*width: 500px;
+            height: 50px;
+            border:1px solid black;*/
+        }
+
+        .mibox {
+            background-color: blue;
+            color:#5f9ea0;
+           
+            width: 500px;
+            height: 300px
+        }
+    </style>
+</head>
+<body>
+    <br />
+    <br />
+    
+   <!-- <div class="box" data-top="4px">Yo tengo texto aca nomás y no pasa nada</div>-->
+    
+    
+    <div class="mibox" style="position:relative">
+        Hola que tal como va fiera
+    </div>
+  
+    <script>
+        $(document).ready(function () {
+            //return;
+            var myBox = $('.mibox');
+            var elRecuadro = $('<div class="elRecuadro"></<div>');
+            var lineWidth = 3;
+            var offset = -3;
+            var width = myBox.width() - lineWidth + offset;
+            var height = myBox.height() - lineWidth + offset;
+
+            var elRecuadroCss = {
+                'position': 'absolute'
+                , 'top': -lineWidth - offset
+                , 'left': -lineWidth - offset
+                , 'width': width + 'px'
+                , 'height': height + 'px'
+                , 'border': lineWidth + 'px solid fuchsia'
+            };
+            elRecuadro.css(elRecuadroCss);
+            elRecuadro.appendTo(myBox);
+            
+            $(myBox).draggable();
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    
+     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/qtip2/2.1.1/jquery.qtip.min.js   "></script>
+    <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/qtip2/2.1.1/jquery.qtip.min.css" />
+    
+</head>
+    <body>
+        <br/>
+        <br/>
+        <a id="elLink" href="http://www.google.es" target="_blank" title="Esto nos lleva a Google">
+            A donde irá este enlace
+        </a>
+        
+        <br/>
+        <br/>
+        <a href="javascript:void(0);" id="microsoft">Cambiar a Microsoft</a>
+        <a href="javascript:void(0);" id="google">Cambiar a Google</a>
+
+        <script>
+            $(document).ready(function () {
+                $('[title]').qtip({
+                    events: {
+                        show: function (event, api) {
+                            var target = api.elements.target;
+                            target.qtip('option', 'content.text', target.attr('title'));
+                        }
+                    }
+                });
+            
+                $('#microsoft').click(function () {
+                    $('#elLink').attr('title', 'Esto va a Microsoft');
+                    $('#elLink').attr('src', 'http://www.microsoft.com');
+                    //$('#elLink').attr({
+                    //    title: 'Esto va a Microsoft',
+                    //    src: 'http://www.microsoft.com'
+                    //});
+                    // Set the content.text of all matched element's tooltips
+                    $('[title]').qtip('option', 'content.text');
+                });
+            
+                $('#google').click(function () {
+                    $('#elLink').attr('title', 'Esto nos lleva a Google');
+                    $('#elLink').attr('src', 'http://www.google.com');
+                    //$('#elLink').attr({
+                    //    title: 'Esto nos lleva a Google',
+                    //    src: 'http://www.google.com'
+                    //});
+                    // Set the content.text of all matched element's tooltips
+                    //$('[title]').qtip('option', 'content.text');
+                });
+            });
+        
+        </script>
+    </body>
+</html>

@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <style>
+       
+    </style>
+</head>
+<body>
+    <br />
+    <br />
+    
+    
+    <div id="laporonga">
+        <div class="innerCapa">
+            <div id="capaDeDentro">Esto es la capa de dentro</div>
+        </div>
+    </div>
+    
+    <div class="capaDeFuera"></div>
+
+    <div id="escribidor">
+     </div>
+    <script>
+        $(document).ready(function () {
+            var escribidor= $('#escribidor');
+            var capaPrincipal = $('#laporonga');
+
+            if (capaPrincipal.index($('.innerCapa')) > 1) {
+                escribidor.append('<p>yes we can!</p>');
+            }
+            if (capaPrincipal.index($('.capaDeFuera')) > 1) {
+                escribidor.append('<p>cagamos mal</p>');
+            }
+            
+        });
+    </script>
+
+</body>
+</html>
