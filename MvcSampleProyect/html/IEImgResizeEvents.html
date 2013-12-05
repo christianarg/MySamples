@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <style>
+        
+    </style>
+</head>
+<body>
+    
+    <div contenteditable="true">
+        <img id="imageWithoutStyle" src="../img/stupidFlanders.jpg" />
+        </div>
+    <br/>
+    <img style="border: 1px" id="imageWithStyleNoHeight" src="../img/stupidFlanders.jpg" />
+    <br/>
+    <img style="height: 500px;" id="imageWithStyleHeight" src="../img/stupidFlanders.jpg" />
+
+
+    <script>
+        $(document).ready(function () {
+            showSpecificHeightAfter($('#imageWithoutStyle'));
+            showSpecificHeightAfter($('#imageWithStyleNoHeight'));
+            showSpecificHeightAfter($('#imageWithStyleHeight'));
+        });
+
+        function showSpecificHeightAfter(jElement) {
+            var styles = jElement.get(0).style;
+            //if (styles == null)
+            //    return;
+            var specificHeight = styles.height;
+            if (specificHeight == "")
+                specificHeight = "No specific height";
+            jElement.after('<div>'+specificHeight+ '</div>');
+        }
+    </script>
+
+</body>
+</html>

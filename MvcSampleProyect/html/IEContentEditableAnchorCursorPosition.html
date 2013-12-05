@@ -1,0 +1,70 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <br />
+    <br />
+
+    <!--<div contenteditable="true">
+        <a href="http://www.google.es">
+            <h2>Hola que tal mostro</h2>
+        </a>
+    </div>
+
+    <a title="Actualidad" contenteditable="true" href="http://www.google.es">ContentEditable DIRECTAMENTE en el Anchor
+    </a>
+    <br />
+    <hr />
+    <a title="Actualidad" href="http://www.google.es">
+        <span contenteditable="true">El muy puto del IE me pone el cursor al principio</span>
+    </a>
+
+    <br />
+    <hr />
+    <a contenteditable="true" title="Actualidad" href="http://www.google.es">
+        <span contenteditable="true">El muy puto del IE me pone el cursor al principio</span>
+    </a>
+
+    <ul>
+        <li>
+            <a title="Casos de éxito" contenteditable="true" data-href="/backOffice/Eip/es-ES/70e37011-8c14-4eee-8122-ca135abfd16a">Esto es una porquería</a>
+        </li>
+    </ul>
+
+
+    <a title="Actualidad" class="fill LastNode .pb-outline-mapping" data-href="/backOffice/Eip/es-ES/d5d18e82-a20b-4a7d-bac7-916cbd1ee6db">
+        <h1 title="Actualidad" class=".pb-outline-mapping" style="display: inline-block;" contenteditable="true">Actualidad</h1>
+    </a>
+
+    <br/>-->
+    <ul>
+        <li>
+            <a href="/backOffice/Eip/es-ES/d9d4f2a9-c53d-4083-9eaf-3cb0f4565940"><span contenteditable="true">Bug inicial. Tag con contentEditable rodeado por un anchor, me pone el cursor al principio. Comportamiento IE10</span></a>
+        </li>
+        <li>
+            <a data-href="/backOffice/Eip/es-ES/d9d4f2a9-c53d-4083-9eaf-3cb0f4565940"><span contenteditable="true">Corrección (Tag con contentEditable rodeado por un anchor). Se quita el href (y se guarda en el data)</span></a>
+        </li>
+        <li>
+            <a contenteditable="true" data-href="/backOffice/Eip/es-ES/d9d4f2a9-c53d-4083-9eaf-3cb0f4565940">Efecto colateral. Cuando el anchor tiene directamente contenteditable y el texto dentro sin TAG intermedio, NO NOS DEJA BORRAR con delete (si no tiene href)</a>
+        </li>
+        <li>
+            <a contenteditable="true" href="/backOffice/Eip/es-ES/d9d4f2a9-c53d-4083-9eaf-3cb0f4565940">Solución. No quitar el href para anchors contentEditable con el texto dentro SIN tag intermedio</a>
+        </li>
+
+    </ul>
+
+    <script>
+        $(document).ready(function () {
+
+        });
+
+    </script>
+
+</body>
+</html>

@@ -120,6 +120,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="Controllers\ViewContextViewData\ViewContextViewDataController.cs" />
     <Compile Include="Controllers\ViewContextViewDataWithPartial\ViewContextViewDataWithPartialController.cs" />
+    <Compile Include="Controllers\WebConfiguration\WebConfigurationController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -130,20 +131,26 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Content Include="buscarElementosConUnCssEspecifico.html" />
-    <Content Include="JqueryAddRemoveSetTimeout.html" />
+    <Content Include="html\buscarElementosConUnCssEspecifico.html" />
+    <Content Include="html\resizable.html" />
+    <Content Include="html\IEImgResizeEvents.html" />
+    <Content Include="html\HeightWidthAndNotComputed.html" />
+    <Content Include="html\IEContentEditableAnchorCursorPosition.html" />
+    <Content Include="html\HtmlPositions.html" />
+    <Content Include="html\JqueryAddRemoveSetTimeout.html" />
+    <Content Include="html\jqueryHas.html" />
+    <Content Include="html\JqueryStopSample.html" />
+    <Content Include="html\OtheroutlineAndOverFlow.html" />
+    <Content Include="html\outlineAndOverFlow.html" />
+    <Content Include="html\outlineOffsetParaIeConJQuery.html" />
+    <Content Include="html\qtipUpdateTest.html" />
     <Content Include="Global.asax" />
-    <Content Include="HtmlPositions.html" />
-    <Content Include="jqueryHas.html" />
-    <Content Include="JqueryStopSample.html" />
     <None Include="Scripts\jquery-2.0.3.intellisense.js" />
-    <Content Include="OtheroutlineAndOverFlow.html" />
-    <Content Include="outlineAndOverFlow.html" />
-    <Content Include="outlineOffsetParaIeConJQuery.html" />
     <Content Include="Scripts\JavaScript1.js" />
     <Content Include="Scripts\JavaScript2.js" />
     <Content Include="Scripts\jquery-2.0.3.js" />
     <Content Include="Scripts\jquery-2.0.3.min.js" />
+    <Content Include="img\stupidFlanders.jpg" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -156,6 +163,7 @@
     <Content Include="Views\ViewContextViewDataWithPartial\Index.cshtml" />
     <Content Include="Views\ViewContextViewDataWithPartial\ThePartial.cshtml" />
     <Content Include="Views\ViewContextViewData\Index.cshtml" />
+    <Content Include="Views\WebConfiguration\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
