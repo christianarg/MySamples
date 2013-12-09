@@ -5,110 +5,46 @@
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 
     <style>
-        body
-        {
-            font-family: Verdana;
-        }
-
-        .elMostrador
-        {
-            width: 600px;
-            border: 1px solid;
-            cursor: default;
-        }
-
-        .elMuestrate
-        {
-            display: none;
-            background-color: blue;
-            color: white;
-            width: 600px;
-            height: 80px;
-            position:absolute;
-        }
+      .capa{
+          height: 300px;
+          width: 300px;
+          border: 1px solid black;
+      }
     </style>
 </head>
 <body>
-
-    <h1>Como cancelar un hide</h1>
-
-
-    <h2>Con SetTimeout "normal"</h2>
-
-    <div>
-        Este ejemplo muestra como cancelar un hide de dos maneras. Primero con settimeoutNormal<br />
-        El handicap en este caso es que hay que guardarnos el timer en una variable (o data)<br />
-        y cuando hay muchos en la página puede ser "molesto" de gestionar<br />
-    </div>
-    <br />
-    <div id="mostrador" class="elMostrador">Si pones el mouse aquí se muestra la capa, si sales se oculta</div>
-
-    <div id="muestrate" class="elMuestrate">Si pones el mouse aquí, se cancela el ocultar. Si sales se oculta</div>
-
-    <script>
-
-        var timer;
-        $(document).ready(function () {
-            $('#mostrador').hover(ShowMuestrate, HideMuestrate);
-
-            $('#muestrate').hover(StopHide, HideMuestrate);
-        });
-
-        function StopHide(parameters) {
-            clearTimeout(timer);
-        }
-
-
-        function ShowMuestrate(parameters) {
-            $('#muestrate').show();
-        }
-
-        function HideMuestrate(parameters) {
-            clearTimeout(timer);
-            timer = setTimeout(function () { $('#muestrate').hide(); }, 1500);
-
-        }
-    </script>
-    <br />
-    <br />
-    <br />
-    <h2>Con Animate-Stop-Delay de JQuery</h2>
-    <div>
-        El segundo caso utiliza el api de animate (por dentro) de jquery y la cola de animación<br />
-        Nos evita tener que guardarnos la variable del timer y obtenerla, por lo que el código es 
-            más sencillo.
-    </div>
-    <br />
-
-    <div id="elTextoQueMuestraLaBarra" class="elMostrador">Si pones el mouse aquí se muestra la capa, si sales se oculta</div>
-    <div id="laBarraAMostrar" class="elMuestrate">Si pones el mouse aquí, se cancela el ocultar. Si sales se oculta</div>
-
+    
+    <div id="hovereableDiv" class="capa">MouseEnter on this div sets backgroundColor</div>
+    <div id="divThatCancelcsHoverOut" class="capa">Except when y hover this div</div>
+  
     <script>
         $(document).ready(function () {
-            // En el hover del texto, mostramos / ocultamos la barra
-            $('#elTextoQueMuestraLaBarra').hover(ShowMuestrateA, HideMuestrateA);
-
-            // 
-            $('#laBarraAMostrar').hover(StopHideA, HideMuestrateA);
+            $('#hovereableDiv').hover(
+                // MouseEnter
+                function () {
+                    setBackgroundBlue($(this));
+                },
+                function (e) {
+                    // this does de trick!!
+                    // the javascript event.relatedTarget lets us know who is triggering the mouseleave
+                    // if we dont want to execute mouseleave when hovering (mouse enter) a specific tag
+                    // you can unse e.relatedTarget for this. In this example i'm "filtering" by id but it could be a class
+                    if (e.relatedTarget.id != 'divThatCancelcsHoverOut')
+                        clearBackgroundBlue($(this));
+                });
+            
+            // We might want to execute the same mouseleave function when leaving the "cancelHover" div, depending on the case
+            $('#divThatCancelcsHoverOut').mouseleave(function () {
+                clearBackgroundBlue($('#hovereableDiv'));
+            });
         });
 
-        function StopHideA(parameters) {
-            $(this).stop({ clearQueue: true }); // true
+        function setBackgroundBlue(jelement) {
+            jelement.css('background-color', 'blue');
         }
-
-        function ShowMuestrateA(parameters) {
-            $('#laBarraAMostrar')
-                .show();
-        }
-
-        function HideMuestrateA(parameters) {
-            // Impresindible primer stop http://bxcollective.com/jquery-prevent-queue-buildup-with-hover-and-animations/
-            // y ponerle un parámetro al hide, sino no entra en la cola de efectos
-            // http://blog.bigbinary.com/2010/02/02/understanding-jquery-effects-queue.html
-            $('#laBarraAMostrar')
-                .stop()
-                .delay(1000)
-                .hide(1);
+        
+        function clearBackgroundBlue(jelement) {
+            jelement.css('background-color', '');
         }
     </script>
 
