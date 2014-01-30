@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <title>A Simple Page with CKEditor</title>
+        <!-- Make sure the path to CKEditor is correct. -->
+        <!--<script src="/Scripts/CkEditor/ckeditor.js"></script>-->
+        <script src="/Scripts/CkEditor/ckeditor_4.3.2_standard/ckeditor/ckeditor.js"></script>
+        <style>
+            .Destacado {
+                color:gold;
+            }
+        </style>
+    </head>
+    <body>
+        <form>
+<!--            <textarea id="editor1" name="editor1" rows="10" cols="80">
+                This is my textarea to be replaced with CKEditor.
+            </textarea>
+             <script>
+                 // Replace the <textarea id="editor1"> with a CKEditor
+                 // instance, using default configuration.
+                 CKEDITOR.replace('editor1');
+            </script>
+            -->
+            <div id="inlineckeditor" contenteditable="true">
+                <h1>Aquí CkEditor inline con 2 cojones</h1>
+                <p>Todo el quilombo del inline editor al repedo, la reputa madre</p>
+            </div>
+           
+            
+            <script>
+                // Turn off automatic editor creation first.
+                CKEDITOR.disableAutoInline = true;
+                CKEDITOR.stylesSet.add('my_styles', [{
+                    name: 'Custom Image',
+                    element: 'img',
+                    attributes: { 'class': 'myClass' }
+                }]);
+                CKEDITOR.inline('inlineckeditor');
+            </script>
+        </form>
+    </body>
+</html>

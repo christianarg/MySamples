@@ -73,6 +73,7 @@
     <Compile Include="DomainFactoryInjection\CanBeImproved\CanBeImproved.cs" />
     <Compile Include="DomainFactoryInjection\Improved\Improved.cs" />
     <Compile Include="DynamicAndGenerics\DynamicAndGenericTests.cs" />
+    <Compile Include="FuncAndAction\UnitTest1.cs" />
     <Compile Include="JsonNet\UnitTest1.cs" />
     <Compile Include="Linq\GroupByTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -1,0 +1,3 @@
+﻿define({
+    mostro: 'hola puto'
+});
