@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //var url = '<script src="DocumentWrite.js"><\/script>';
+            //document.write(url);
+            //setTimeout(function () {
+            //    FunctionLoadedWithDocumentWrite();
+            //}, 1000);
+            
+            $('#load').click(function () {
+                var url = '<script src="DocumentWrite.js"><\/script>';
+                document.write(url);
+            });
+            $('#exec').click(function () {
+                FunctionLoadedWithDocumentWrite();
+            });
+        });
+    </script>
+
+</head>
+<body>
+    <div id="load">LoadScript</div>
+    <div id="exec">ExecScript</div>
+</body>
+</html>

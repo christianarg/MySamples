@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <style>
+        .contenido
+        {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div id="listacontenidos">
+        <div class="contenido">
+            <h2>Título de la noticia 1</h2>
+            <div>Contenido la noticia que viene de servidor</div>
+        </div>
+        <div class="contenido">
+            <h2>Título de la noticia 2</h2>
+            <div>Contenido la noticia que viene de servidor</div>
+        </div>
+    </div>
+
+    <script>
+        $(function () {
+            $("#listacontenidos").sortable();
+            $("#listacontenidos").disableSelection();
+        });
+    </script>
+</body>
+</html>

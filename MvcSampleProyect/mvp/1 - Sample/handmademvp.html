@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../Scripts/jquery-2.0.3.min.js"></script>
+    <script src="taskModel.js"></script>
+    <script src="taskPresenter.js"></script>
+    <script src="taskView.js"></script>
+    <script src="listPresenter.js"></script>
+    <script src="listView.js"></script>
+    <script>
+        $(document).ready(function () {
+            //var model = new TaskModel("Hello world!");
+            //var task = new TaskPresenter(new TaskView());
+
+            //task.setModel(model);
+            //var html = task.getView().getHtml();
+            
+            var list = new ListPresenter(new ListView());
+            $("body").append(list.getView().getHtml());
+        });
+        //$("#hola").append(html);
+        
+       
+    </script>
+</head>
+<body>
+    <div id="hola"></div>
+</body>
+</html>

@@ -5,9 +5,12 @@
         <!-- Make sure the path to CKEditor is correct. -->
         <!--<script src="/Scripts/CkEditor/ckeditor.js"></script>-->
         <script src="/Scripts/CkEditor/ckeditor_4.3.2_standard/ckeditor/ckeditor.js"></script>
+        <!--<script src="/Scripts/CkEditor/ckeditor_4.3.2_full/ckeditor/ckeditor.js"></script>-->
+        
+        
         <style>
             .Destacado {
-                color:gold;
+                color:gold; 
             }
         </style>
     </head>
@@ -32,8 +35,8 @@
                 // Turn off automatic editor creation first.
                 CKEDITOR.disableAutoInline = true;
                 CKEDITOR.stylesSet.add('my_styles', [{
-                    name: 'Custom Image',
-                    element: 'img',
+                    name: 'Podonga',
+                    element: 'p',
                     attributes: { 'class': 'myClass' }
                 }]);
                 CKEDITOR.inline('inlineckeditor');

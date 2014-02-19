@@ -1,0 +1,49 @@
+﻿
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Ejemplo de como cancelar un hide</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+    <style>
+    
+    </style>
+</head>
+<body>
+    <h1>Ejemplo1 Timeout</h1>
+    <input type="text" id="txt"/>
+    <div id="aquivaelpreview"></div>
+
+    <script>
+
+        var timer;
+        
+        $(document).ready(function () {
+            
+            $('#txt').on('keypress', function () {
+                clearTimeout(timer);
+                timer = setTimeout(function () {
+                    console.log("escribimod");
+                    $('#aquivaelpreview').html($('#txt').val());
+                }, 1000);
+            });
+            
+        });
+
+    </script>
+    
+    
+    <h1>Ejemplo2 Change</h1>
+    <input type="text" id="txt2"/>
+    <div id="aquivaelpreview2"></div>
+        <script>
+            $(document).ready(function () {
+                $('#txt2').on('change', function () {
+                    $('#aquivaelpreview2').html($('#txt2').val());
+                });
+            });
+
+    </script>
+
+</body>
+</html>

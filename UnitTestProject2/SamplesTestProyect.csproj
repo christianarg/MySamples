@@ -80,6 +80,7 @@
     <Compile Include="Iterator\IteratorTest1.cs" />
     <Compile Include="EFRefresh\UnitTest3.cs" />
     <Compile Include="ExplicitInterface\ExplicitInterfaceTest.cs" />
+    <Compile Include="Ref\RefTest.cs" />
     <Compile Include="StringEnums\StringEnumTests.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="qunit-1.14.0.css" rel="stylesheet" />
+    <script src="qunit.js"></script>
+    <script src="sinon.js"></script>
+    <script>
+        
+        var MyModule = (function () {
+            function myClass() {
+                
+            }
+            myClass.prototype = {
+                isExecuted: false,
+                execute:function() {
+                    this.isExecuted = true;
+                }
+            };
+            return { MyClass: myClass };
+        })();
+            
+        test('executed', function () {
+            // ARRANGE
+            var myInstance = new MyModule.MyClass();
+            // ACT
+            myInstance.execute();
+            // ASSERT
+            ok(myInstance.isExecuted);
+        });
+
+        test('spy: "Espiar" un objet SIN reemplazar su funcionalidad original', function () {
+            // ARRANGE
+            var myInstance = new MyModule.MyClass();
+            // ACT
+            sinon.spy(myInstance, 'execute'); // como estamos probando sinon, es parte del act
+            myInstance.execute();
+            // ASSERT
+            ok(myInstance.isExecuted);
+            ok(myInstance.execute.calledOnce);
+        });
+        
+        test('stub1: Reemplazar objeto', function () {
+            // ARRANGE
+            var myInstance = new MyModule.MyClass();
+            // ACT
+            sinon.stub(myInstance, 'execute'); // como estamos probando sinon, es parte del act
+            myInstance.execute();
+
+            // ASSERT
+            // GRAN DIFERENCIA CON SPY! El método original no se ejecutará
+            ok(!myInstance.isExecuted);
+            ok(myInstance.execute.calledOnce);
+        });
+        
+        test('stub2: Reemplazar objeto con funcionalidad', function () {
+            // ARRANGE
+            var myInstance = new MyModule.MyClass();
+            var stubExecuted = false;
+
+            // ACT
+            sinon.stub(myInstance, 'execute',function() {
+                stubExecuted = true;
+            });
+            
+            myInstance.execute();
+
+            // ASSERT
+            
+            ok(stubExecuted);
+            ok(myInstance.execute.calledOnce);
+        });
+
+        
+        test("mock: ",0, function () {
+            // ARRANGE
+            var myInstance = new MyModule.MyClass();
+            
+            // ACT
+            var mock = sinon.mock(myInstance, 'execute');
+            mock.expects('execute').once();
+            
+            myInstance.execute();
+
+            // ASSERT
+            mock.verify();
+            //ok(myInstance.execute.calledOnce);
+        });
+
+    </script>
+</head>
+<body>
+     <div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+</body>
+</html>

@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>A Simple Page with CKEditor</title>
+    <!-- Make sure the path to CKEditor is correct. -->
+    <!--<script src="/Scripts/CkEditor/ckeditor.js"></script>-->
+    <script src="/Scripts/CkEditor/ckeditor_4.3.2_standard/ckeditor/ckeditor.js"></script>
+    <!--<script src="/Scripts/CkEditor/ckeditor_4.3.2_full/ckeditor/ckeditor.js"></script>-->
+
+
+    <style>
+        .Destacado
+        {
+            color: gold;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <textarea id="editor1" name="editor1" rows="10" cols="80">
+                This is my textarea to be replaced with CKEditor.
+        </textarea>
+
+        <span class="Destacado">Hola tarola</span>
+        <script>
+            // Replace the <textarea id="editor1"> with a CKEditor
+            // instance, using default configuration.
+            CKEDITOR.replace('editor1');
+            
+            // The set of styles for the <b>Styles</b> combo.
+            CKEDITOR.stylesSet.add('default', [
+                // Block Styles
+                { name: 'Blue Title', element: 'h3', styles: { 'color': 'Blue' } },
+                { name: 'Red Title', element: 'h3', styles: { 'color': 'Red' } },
+
+                // Inline Styles
+                { name: 'Destacado', element: 'span', attributes: { 'class': 'Destacado' } },
+                //{ name: 'Marker: Yellow', element: 'span', styles: { 'background-color': 'Yellow' } },
+                //{ name: 'Marker: Green', element: 'span', styles: { 'background-color': 'Lime' } },
+
+                // Object Styles
+                {
+                    name: 'Image on Left',
+                    element: 'img',
+                    attributes: {
+                        style: 'padding: 5px; margin-right: 5px',
+                        border: '2',
+                        align: 'left'
+                    }
+                }
+            ]);
+
+            //CKEDITOR.stylesSet.add('Dale Pancho', [
+            //    // Block-level styles.
+            //    { name: 'Blue Title', element: 'h2', styles: { color: 'Blue' } },
+            //    { name: 'Red Title', element: 'h3', styles: { color: 'Red' } },
+
+            //    // Inline styles.
+            //    { name: 'CSS Style', element: 'span', attributes: { 'class': 'my_style' } },
+            //    { name: 'Marker: Yellow', element: 'span', styles: { 'background-color': 'Yellow' } }
+            //]);          
+
+        </script>
+    </form>
+</body>
+</html>

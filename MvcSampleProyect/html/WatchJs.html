@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="../Scripts/watch.js"></script>
+     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<body>
+    <script>
+        var myObject = {
+            myProperty: 'Que onda',
+            myProperty2: 'Papa',
+            myArray: []
+        };
+
+        
+        $(document).ready(function () {
+            mostrarCosas();
+            $('#aquiclick').click(function () {
+                //myObject.myProperty2 = 'Papurri';
+                myObject.myArray.push('pepe');
+            });
+            watch(myObject, mostrarCosas);
+        });
+        
+        function mostrarCosas() {
+            //$('#aquicosas').html(myObject.myProperty + myObject.myProperty2);
+            $('#aquicosas').html(myObject.myArray.length);
+        }
+    </script>
+    <div id="aquicosas">
+        
+    </div>
+    <a id="aquiclick" href="javascript:void(0);">Aqui Click</a>
+</body>
+</html>

@@ -1,0 +1,3 @@
+﻿function FunctionLoadedWithDocumentWrite() {
+    alert('FunctionLoadedWithDocumentWrite');
+}
