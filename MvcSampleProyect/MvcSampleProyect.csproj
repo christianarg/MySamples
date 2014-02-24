@@ -118,6 +118,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="Controllers\AjaxController.cs" />
     <Compile Include="Controllers\ViewContextViewData\ViewContextViewDataController.cs" />
     <Compile Include="Controllers\ViewContextViewDataWithPartial\ViewContextViewDataWithPartialController.cs" />
     <Compile Include="Controllers\ViewViewer\ViewViewerController.cs" />
@@ -144,10 +145,11 @@
     <Content Include="angularjs\4 - Custom- ReusableTODO\todo.js" />
     <Content Include="CkEditor\ckeditorInline.html" />
     <Content Include="CkEditor\ckeditorTextArea.html" />
-    <Content Include="ClientTests\SinonSamples\qunit-1.14.0.css" />
-    <Content Include="ClientTests\SinonSamples\qunit.js" />
-    <Content Include="ClientTests\SinonSamples\sinon.js" />
+    <Content Include="ClientTests\SinonSamples\Framework\qunit-1.14.0.css" />
+    <Content Include="ClientTests\SinonSamples\Framework\qunit.js" />
+    <Content Include="ClientTests\SinonSamples\Framework\sinon.js" />
     <Content Include="ClientTests\SinonSamples\SinonSamples.html" />
+    <Content Include="ClientTests\SinonSamples\SinonSamples.js" />
     <Content Include="html\buscarElementosConUnCssEspecifico.html" />
     <Content Include="html\CancelHoverOut.html" />
     <Content Include="html\DocumentWrite.html" />
@@ -175,6 +177,8 @@
     <Content Include="mvp\1 - Sample\taskPresenter.js" />
     <Content Include="mvp\1 - Sample\taskView.js" />
     <Content Include="mvp\2 - ListManagement\ListManagement.html" />
+    <Content Include="mvp\2 - ListManagement\ListPresenter.js" />
+    <Content Include="mvp\2 - ListManagement\ListView.js" />
     <Content Include="Scripts\angular-animate.js" />
     <Content Include="Scripts\angular-animate.min.js" />
     <Content Include="Scripts\angular-cookies.js" />

@@ -1,26 +1,28 @@
-﻿function ListPresenter(_view) {
+﻿/// <reference path="../../Scripts/jquery-2.0.3.js" />
 
-    var view;
+function ListPresenter(theView) {
+    this.view = theView;
 
-    function init() {
-        view = _view;
+    this.view.addCreateTaskHandler($.proxy(this.addTask, this));
+    // Alternativa 2:
+    // Solo por instanciar el presentador se muestra la vista
+    //this.view.show();
+};
 
-        view.addCreateTaskHandler(function (taskTitle) {
-            var model = new TaskModel(taskTitle);
-            var task = new TaskPresenter(new TaskView());
-            task.setModel(model);
 
-            view.addTask(task.getView());
-        });
+ListPresenter.prototype = {
 
-    };
+    getView: function () {
+        return this.view;
+    },
 
-    var public = {
-        getView: function () {
-            return view;
-        }
-    };
-
-    init();
-    return public;
-}
+    addTask: function (taskTitle) {
+        var model = new TaskModel(taskTitle);
+        var task = new TaskPresenter(new TaskView());
+        task.setModel(model);
+        this.view.addTask(task.getView());
+    },
+    show: function() {
+        this.view.show();
+    }
+};

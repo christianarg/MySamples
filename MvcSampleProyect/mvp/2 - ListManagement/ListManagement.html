@@ -4,6 +4,8 @@
     <title></title>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script src="ListPresenter.js"></script>
+    <script src="ListView.js"></script>
     <style>
         .contenido
         {
@@ -25,8 +27,8 @@
 
     <script>
         $(function () {
-            $("#listacontenidos").sortable();
-            $("#listacontenidos").disableSelection();
+            var listPresenter = new ListPresenter(new ListView('#listacontenidos'));
+            listPresenter.bind();
         });
     </script>
 </body>
