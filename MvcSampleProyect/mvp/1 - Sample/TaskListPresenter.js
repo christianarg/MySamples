@@ -1,6 +1,6 @@
 ﻿/// <reference path="../../Scripts/jquery-2.0.3.js" />
 
-function ListPresenter(theView) {
+function TaskListPresenter(theView) {
     this.view = theView;
 
     this.view.addCreateTaskHandler($.proxy(this.addTask, this));
@@ -10,7 +10,7 @@ function ListPresenter(theView) {
 };
 
 
-ListPresenter.prototype = {
+TaskListPresenter.prototype = {
 
     getView: function () {
         return this.view;

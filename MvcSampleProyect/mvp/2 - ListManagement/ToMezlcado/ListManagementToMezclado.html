@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script src="../fakeAjax.js"></script>
+    <script src="ListManager.js"></script>
+    
+    <style>
+        .contenido
+        {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div id="listacontenidos">
+        <div class="contenido" data-contentId="1">
+            <h2>Título de la noticia 1</h2>
+            <div>Contenido la noticia que viene de servidor</div>
+        </div>
+        <div class="contenido" data-contentId="2">
+            <h2>Título de la noticia 2</h2>
+            <div>Contenido la noticia que viene de servidor</div>
+        </div>
+    </div>
+
+    <div id="elservidor" style="position: absolute; bottom:5px; left:5px"></div>
+    <script>
+        $(document).ready(function () {
+            ListManagement.ListManager.initialize();
+        });
+    </script>
+</body>
+</html>

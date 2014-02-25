@@ -1,7 +1,7 @@
 ﻿/// <reference path="../../Scripts/jquery-2.0.3.js" />
 
 
-function ListView() {
+function TaskListView() {
 
     this.html =  $("<div>" +
                 "<h1>Awesome MVP task list</h1>" +
@@ -13,24 +13,27 @@ function ListView() {
                 "</div>");
 }
 
-ListView.prototype = {
+TaskListView.prototype = {
     getHtml: function () {
         return this.html;
     },
-    addCreateTaskHandler: function (presentationHandler) {
+    
+    addCreateTaskHandler: function (presenterAction) {
         var clickFunction = $.proxy(function () {
             
             var newTaskTitle = this.html.find("#taskinput").val();
             this.html.find("#taskinput").val("");
-            presentationHandler(newTaskTitle);
+            presenterAction(newTaskTitle);
             
         }, this);
         
         this.html.find("#submittask").click(clickFunction);
     },
+    
     addTask: function (taskView) {
         this.html.find("#tasklist").append(taskView.getHtml());
     },
+    
     show: function() {
         $("body").append(this.getHtml());
     }

@@ -6,12 +6,13 @@
     <script src="taskModel.js"></script>
     <script src="taskPresenter.js"></script>
     <script src="taskView.js"></script>
-    <script src="listPresenter.js"></script>
-    <script src="listView.js"></script>
+    <script src="TasklistPresenter.js"></script>
+    <script src="TasklistView.js"></script>
     <script>
+
         $(document).ready(function () {
             
-            var list = new ListPresenter(new ListView());
+            var list = new TaskListPresenter(new TaskListView());
             // Alternativa 1: Llamar a show
             list.show();
         });

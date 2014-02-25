@@ -4,8 +4,9 @@
     <title></title>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
     <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-    <script src="ListPresenter.js"></script>
-    <script src="ListView.js"></script>
+    <script src="fakeAjax.js"></script>
+    <script src="ListManagementPresenter.js"></script>
+    <script src="ListManagementView.js"></script>
     <style>
         .contenido
         {
@@ -15,20 +16,22 @@
 </head>
 <body>
     <div id="listacontenidos">
-        <div class="contenido">
+        <div class="contenido" data-contentId="1">
             <h2>Título de la noticia 1</h2>
             <div>Contenido la noticia que viene de servidor</div>
         </div>
-        <div class="contenido">
+        <div class="contenido" data-contentId="2">
             <h2>Título de la noticia 2</h2>
             <div>Contenido la noticia que viene de servidor</div>
         </div>
     </div>
+    
 
+    <div id="elservidor" style="position: absolute; bottom:5px; left:5px"></div>
     <script>
-        $(function () {
-            var listPresenter = new ListPresenter(new ListView('#listacontenidos'));
-            listPresenter.bind();
+        $(document).ready(function () {
+            var listPresenter = new ListManagementPresenter(new ListManagementView('#listacontenidos'));
+            listPresenter.initialize();
         });
     </script>
 </body>
