@@ -10,8 +10,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcSampleProyect", "MvcSampleProyect\MvcSampleProyect.csproj", "{39DD83AC-FDEC-40BC-835E-CEDD72764B77}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EF4EF5TransactionScope", "..\..\Visual Studio 2012\Projects\UnitTestProject1\UnitTestProject1\EF4EF5TransactionScope.csproj", "{733BB875-4CDD-4A42-AAF1-17EF6D03CEC5}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RequreJs", "RequreJs\RequreJs.csproj", "{DC16D617-19E2-466C-96E4-402ED00509C8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EF4EF5TransactionScope", "EF4EF5TransactionScope\EF4EF5TransactionScope.csproj", "{733BB875-4CDD-4A42-AAF1-17EF6D03CEC5}"

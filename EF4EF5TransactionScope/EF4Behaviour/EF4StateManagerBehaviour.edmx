@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model1.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="Model1StoreContainer">
+          <EntitySet Name="EF4DetailSet" EntityType="Model1.Store.EF4DetailSet" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EF4SurrogateDetail" EntityType="Model1.Store.EF4SurrogateDetail" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EFMasterSet" EntityType="Model1.Store.EFMasterSet" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="EFMasterSurrogate" EntityType="Model1.Store.EFMasterSurrogate" store:Type="Tables" Schema="dbo" />
+          <AssociationSet Name="FK_EF4SurrogateDetail_EFMasterSurrogate" Association="Model1.Store.FK_EF4SurrogateDetail_EFMasterSurrogate">
+            <End Role="EFMasterSurrogate" EntitySet="EFMasterSurrogate" />
+            <End Role="EF4SurrogateDetail" EntitySet="EF4SurrogateDetail" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EFMasterEF4Detail" Association="Model1.Store.FK_EFMasterEF4Detail">
+            <End Role="EFMasterSet" EntitySet="EFMasterSet" />
+            <End Role="EF4DetailSet" EntitySet="EF4DetailSet" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="EF4DetailSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="EFMaster_Id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EF4SurrogateDetail">
+          <Key>
+            <PropertyRef Name="DbId" />
+          </Key>
+          <Property Name="DbId" Type="int" Nullable="false" />
+          <Property Name="Master_DbId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EFMasterSet">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="MyProperty" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EFMasterSurrogate">
+          <Key>
+            <PropertyRef Name="DbId" />
+          </Key>
+          <Property Name="DbId" Type="int" Nullable="false" />
+          <Property Name="MyProperty" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_EF4SurrogateDetail_EFMasterSurrogate">
+          <End Role="EFMasterSurrogate" Type="Model1.Store.EFMasterSurrogate" Multiplicity="1" />
+          <End Role="EF4SurrogateDetail" Type="Model1.Store.EF4SurrogateDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EFMasterSurrogate">
+              <PropertyRef Name="DbId" />
+            </Principal>
+            <Dependent Role="EF4SurrogateDetail">
+              <PropertyRef Name="Master_DbId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EFMasterEF4Detail">
+          <End Role="EFMasterSet" Type="Model1.Store.EFMasterSet" Multiplicity="1" />
+          <End Role="EF4DetailSet" Type="Model1.Store.EF4DetailSet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EFMasterSet">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="EF4DetailSet">
+              <PropertyRef Name="EFMaster_Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="Model1" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="Model1Container" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="EFMasterSet" EntityType="Model1.EFMaster" />
+          <EntitySet Name="EF4DetailSet" EntityType="Model1.EF4Detail" />
+          <AssociationSet Name="EFMasterEF4Detail" Association="Model1.EFMasterEF4Detail">
+            <End Role="EFMaster" EntitySet="EFMasterSet" />
+            <End Role="EF4Detail" EntitySet="EF4DetailSet" />
+          </AssociationSet>
+          <EntitySet Name="EF4SurrogateDetail" EntityType="Model1.EF4SurrogateDetail" />
+          <EntitySet Name="EFMasterSurrogate" EntityType="Model1.EFMasterSurrogate" />
+          <AssociationSet Name="FK_EF4SurrogateDetail_EFMasterSurrogate" Association="Model1.FK_EF4SurrogateDetail_EFMasterSurrogate">
+            <End Role="EFMasterSurrogate" EntitySet="EFMasterSurrogate" />
+            <End Role="EF4SurrogateDetail" EntitySet="EF4SurrogateDetail" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="EFMaster">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="MyProperty" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+          <NavigationProperty Name="EF4Detail" Relationship="Model1.EFMasterEF4Detail" FromRole="EFMaster" ToRole="EF4Detail" />
+        </EntityType>
+        <EntityType Name="EF4Detail">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="EFMaster" Relationship="Model1.EFMasterEF4Detail" FromRole="EF4Detail" ToRole="EFMaster" />
+        </EntityType>
+        <Association Name="EFMasterEF4Detail">
+          <End Type="Model1.EFMaster" Role="EFMaster" Multiplicity="1" />
+          <End Type="Model1.EF4Detail" Role="EF4Detail" Multiplicity="*" />
+        </Association>
+        <EntityType Name="EF4SurrogateDetail">
+          <Key>
+            <PropertyRef Name="DbId" />
+          </Key>
+          <Property Type="Int32" Name="DbId" Nullable="false" />
+          <Property Type="Int32" Name="Master_DbId" Nullable="false" />
+          <NavigationProperty Name="EFMasterSurrogate" Relationship="Model1.FK_EF4SurrogateDetail_EFMasterSurrogate" FromRole="EF4SurrogateDetail" ToRole="EFMasterSurrogate" />
+        </EntityType>
+        <EntityType Name="EFMasterSurrogate">
+          <Key>
+            <PropertyRef Name="DbId" />
+          </Key>
+          <Property Type="Int32" Name="DbId" Nullable="false" />
+          <Property Type="String" Name="MyProperty" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="EF4SurrogateDetail" Relationship="Model1.FK_EF4SurrogateDetail_EFMasterSurrogate" FromRole="EFMasterSurrogate" ToRole="EF4SurrogateDetail" />
+        </EntityType>
+        <Association Name="FK_EF4SurrogateDetail_EFMasterSurrogate">
+          <End Type="Model1.EFMasterSurrogate" Role="EFMasterSurrogate" Multiplicity="1" />
+          <End Type="Model1.EF4SurrogateDetail" Role="EF4SurrogateDetail" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EFMasterSurrogate">
+              <PropertyRef Name="DbId" />
+            </Principal>
+            <Dependent Role="EF4SurrogateDetail">
+              <PropertyRef Name="Master_DbId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Model1StoreContainer" CdmEntityContainer="Model1Container">
+    <EntitySetMapping Name="EFMasterSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.EFMaster)">
+        <MappingFragment StoreEntitySet="EFMasterSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="MyProperty" ColumnName="MyProperty" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EF4DetailSet">
+      <EntityTypeMapping TypeName="IsTypeOf(Model1.EF4Detail)">
+        <MappingFragment StoreEntitySet="EF4DetailSet">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="EFMasterEF4Detail" TypeName="Model1.EFMasterEF4Detail" StoreEntitySet="EF4DetailSet">
+      <EndProperty Name="EFMaster">
+        <ScalarProperty Name="Id" ColumnName="EFMaster_Id" />
+      </EndProperty>
+      <EndProperty Name="EF4Detail">
+        <ScalarProperty Name="Id" ColumnName="Id" />
+      </EndProperty>
+    </AssociationSetMapping>
+          <EntitySetMapping Name="EF4SurrogateDetail">
+            <EntityTypeMapping TypeName="Model1.EF4SurrogateDetail">
+              <MappingFragment StoreEntitySet="EF4SurrogateDetail">
+                <ScalarProperty Name="Master_DbId" ColumnName="Master_DbId" />
+                <ScalarProperty Name="DbId" ColumnName="DbId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EFMasterSurrogate">
+            <EntityTypeMapping TypeName="Model1.EFMasterSurrogate">
+              <MappingFragment StoreEntitySet="EFMasterSurrogate">
+                <ScalarProperty Name="MyProperty" ColumnName="MyProperty" />
+                <ScalarProperty Name="DbId" ColumnName="DbId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

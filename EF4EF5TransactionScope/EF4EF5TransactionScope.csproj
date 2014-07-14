@@ -60,6 +60,36 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="EF4Behaviour\EF4Detail.cs">
+      <DependentUpon>EF4StateManagerBehaviour.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF4Behaviour\EF4StateManagerBehaviour.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EF4StateManagerBehaviour.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF4Behaviour\EF4StateManagerBehaviour.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EF4StateManagerBehaviour.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF4Behaviour\EF4StateManagerBehaviourTests.cs" />
+    <Compile Include="EF4Behaviour\EF4StateManagerBehaviour.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EF4StateManagerBehaviour.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="EF4Behaviour\EF4SurrogateDetail.cs">
+      <DependentUpon>EF4StateManagerBehaviour.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF4Behaviour\EFMaster.cs">
+      <DependentUpon>EF4StateManagerBehaviour.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF4Behaviour\EFMasterSurrogate.cs">
+      <DependentUpon>EF4StateManagerBehaviour.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EF5Behaviour\EF5BehaviourDbContext.cs" />
+    <Compile Include="EF5Behaviour\EF5BehaviourTests.cs" />
     <Compile Include="Entity1.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -88,6 +118,23 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model1.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <EntityDeploy Include="EF4Behaviour\EF4StateManagerBehaviour.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EF4StateManagerBehaviour.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="EF4Behaviour\EF4StateManagerBehaviour.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>EF4StateManagerBehaviour.Context.cs</LastGenOutput>
+      <DependentUpon>EF4StateManagerBehaviour.edmx</DependentUpon>
+    </None>
+    <None Include="EF4Behaviour\EF4StateManagerBehaviour.edmx.diagram">
+      <DependentUpon>EF4StateManagerBehaviour.edmx</DependentUpon>
+    </None>
+    <None Include="EF4Behaviour\EF4StateManagerBehaviour.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>EF4StateManagerBehaviour.cs</LastGenOutput>
+      <DependentUpon>EF4StateManagerBehaviour.edmx</DependentUpon>
+    </None>
     <None Include="Model1.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>Model1.Context.cs</LastGenOutput>
@@ -109,6 +156,7 @@
   <ItemGroup>
     <Content Include="Model1.edmx.sql" />
   </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
