@@ -1,0 +1,12 @@
+﻿@model MvcSampleProyect.Controllers.SimpleMvc.Content
+@{
+    ViewBag.Title = "CreateContent";
+}
+
+@using (Html.BeginForm("ExecuteCreateContent","SimpleMvc"))
+{
+    <h2>CreateContent</h2>
+    @Html.EditorForModel()
+    
+    <button>Crear</button>
+}

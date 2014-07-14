@@ -1,0 +1,23 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <title></title>
+    </head>
+<body>
+    
+    <script>
+        function myClass() {
+            this.direction = '';
+            var self = this;
+            Object.defineProperty(this, 'isReverse', function () {
+                return self.reorderRelationModel.direction !== 'SourceToTarget';
+            });
+        }
+        
+        var kito = new myClass();
+        kito.direction = 'SourceToTarget';
+        alert(kito.isReverse);
+    </script>
+</body>
+</html>

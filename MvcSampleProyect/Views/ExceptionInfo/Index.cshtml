@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<script src="~/Scripts/jquery-2.0.3.js"></script>
+<h2>Index</h2>
+
+<a id="petar" href="javascript:void(0);">Petar con información de vuelta</a><br/>
+
+<a id="petar2" href="javascript:void(0);">Petar con información de vuelta controlando la excepcion</a>
+
+<div id="informacionDelPeteTitulo"></div>
+<div id="informacionDelPeteDescripcion"></div>
+
+<script>
+    $(document).ready(function () {
+        $('#petar').click(function () {
+            $.post("/ExceptionInfo/ActionWithError").fail(petarGracilmente);
+        });
+
+        $('#petar2').click(function () {
+            $.post("/ExceptionInfo/ActionWithError2").fail(petarGracilmente);
+        });
+
+    });
+
+    function petarGracilmente(httpError) {
+        var myExceptionData = httpError.responseJSON;
+        $('#informacionDelPeteTitulo').text(myExceptionData.Titulo);
+        $('#informacionDelPeteDescripcion').text(myExceptionData.Descripcion);
+    }
+</script>

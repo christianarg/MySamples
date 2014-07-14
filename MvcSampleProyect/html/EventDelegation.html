@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <style>
+        #pepo {
+            content: "Trolo";
+        }
+    </style>
+
+</head>
+<body id="elbody">
+    <div id="pepo">Hola que hace</div>
+   
+    
+    <div id="clickparaanadirdinamicamente">Añadir dinamicamente</div>
+    <div id="elchivato" style="position: absolute; bottom: 10px"></div>
+    
+     <script>
+         $(document).ready(function () {
+             $('html').on('mouseup', '*', meHanClickado);
+             $('#clickparaanadirdinamicamente').click(function() {
+                 $('#pepo').append('<div id="quetal"> que tal</div>');
+             })
+             //$('#pepo').on('mouseup', meHanClickado);
+             //$('#idLaCosaAbsoluta').mouseup(meHanClickado);
+         });
+
+
+
+         function meHanClickado(evt) {
+             //chivatar('CurrentTarget:' + $(evt.currentTarget).attr('id') + ': Me Han Clicado');
+             if(this == evt.target)
+                chivatar('target:' + $(evt.target).attr('id') + ': Me Han Clicado');
+         }
+
+         function chivatar(texto) {
+             $('#elchivato').html($('#elchivato').html() + '<br />' + texto);
+         }
+    </script>
+</html>

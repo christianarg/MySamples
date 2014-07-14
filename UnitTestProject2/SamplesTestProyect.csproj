@@ -74,8 +74,10 @@
     <Compile Include="DomainFactoryInjection\Improved\Improved.cs" />
     <Compile Include="DynamicAndGenerics\DynamicAndGenericTests.cs" />
     <Compile Include="FuncAndAction\UnitTest1.cs" />
+    <Compile Include="Inheritance\InheritanceTests.cs" />
     <Compile Include="JsonNet\UnitTest1.cs" />
     <Compile Include="Linq\GroupByTest.cs" />
+    <Compile Include="Partials\Partials.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Iterator\IteratorTest1.cs" />
     <Compile Include="EFRefresh\UnitTest3.cs" />

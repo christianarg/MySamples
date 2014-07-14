@@ -14,6 +14,7 @@
     <RootNamespace>MvcSampleProyect</RootNamespace>
     <AssemblyName>MvcSampleProyect</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TypeScriptToolsVersion>1.0</TypeScriptToolsVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -119,6 +120,9 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="Controllers\AjaxController.cs" />
+    <Compile Include="Controllers\ExceptionInfo\ExceptionInfoController.cs" />
+    <Compile Include="Controllers\SimpleMvc\SimpleMvcController.cs" />
+    <Compile Include="Controllers\TypeScriptTest\TypeScriptTestController.cs" />
     <Compile Include="Controllers\ViewContextViewData\ViewContextViewDataController.cs" />
     <Compile Include="Controllers\ViewContextViewDataWithPartial\ViewContextViewDataWithPartialController.cs" />
     <Compile Include="Controllers\ViewViewer\ViewViewerController.cs" />
@@ -139,22 +143,51 @@
     <Content Include="angularjs\2 - TODO\todo.js" />
     <Content Include="angularjs\3 - Directive\simpledirective.js" />
     <Content Include="angularjs\3 - Directive\simpledirective.html" />
+    <Content Include="angularjs\4 - Custom- ReusableTODO\angular1.0.8.js" />
     <Content Include="angularjs\4 - Custom- ReusableTODO\todo.css" />
     <Content Include="angularjs\4 - Custom- ReusableTODO\todo.html" />
     <Content Include="angularjs\4 - Custom- ReusableTODO\todotemplate.html" />
     <Content Include="angularjs\4 - Custom- ReusableTODO\todo.js" />
     <Content Include="CkEditor\ckeditorInline.html" />
     <Content Include="CkEditor\ckeditorTextArea.html" />
-    <Content Include="ClientTests\SinonSamples\Framework\qunit-1.14.0.css" />
-    <Content Include="ClientTests\SinonSamples\Framework\qunit.js" />
-    <Content Include="ClientTests\SinonSamples\Framework\sinon.js" />
+    <Content Include="ClientTests\Framework\qunit-1.14.0.css" />
+    <Content Include="ClientTests\Framework\qunit.d.ts" />
+    <Content Include="ClientTests\Framework\qunit.js" />
+    <Content Include="ClientTests\Framework\sinon.js" />
+    <Content Include="ClientTests\EmptyQUnitTest.html" />
+    <Content Include="ClientTests\ModuleCreator\Facade.html" />
+    <Content Include="ClientTests\ModuleCreator\ModuleCreator.html" />
+    <Content Include="ClientTests\ModuleCreator\ModuleCreator.js" />
     <Content Include="ClientTests\SinonSamples\SinonSamples.html" />
     <Content Include="ClientTests\SinonSamples\SinonSamples.js" />
+    <Content Include="ClientTests\TypeScript\DefferredTests.html" />
+    <TypeScriptCompile Include="ClientTests\TypeScript\DefferredTests.ts" />
+    <Content Include="ClientTests\TypeScript\LinqJsTests.html" />
+    <Content Include="ClientTests\TypeScript\EventsAndRegistration.html" />
+    <TypeScriptCompile Include="ClientTests\TypeScript\EventsAndRegistration.ts" />
+    <TypeScriptCompile Include="ClientTests\TypeScript\LinqJsTests.ts" />
+    <Content Include="html\ContentEditableIEHacks.html" />
+    <Content Include="html\EventDelegation.html" />
+    <Content Include="html\eing.html" />
+    <Content Include="Scripts\jquery.d.ts" />
+    <Content Include="Scripts\linq.d.ts" />
+    <Content Include="Scripts\linq.js" />
+    <Content Include="Views\TypeScriptTest\Index.cshtml" />
+    <Content Include="Views\ExceptionInfo\Index.cshtml" />
+    <Content Include="Views\SimpleMvc\Index.cshtml" />
+    <Content Include="Views\SimpleMvc\CreateContent.cshtml" />
+    <Content Include="Views\SimpleMvc\ShowCreateContent.cshtml" />
+    <TypeScriptCompile Include="ClientTests\TypeScript\MyTypeScript.ts" />
+    <TypeScriptCompile Include="ClientTests\TypeScript\MoreTypesScript.ts" />
+    <TypeScriptCompile Include="ClientTests\TypeScript\TypesScriptTest.ts" />
+    <Content Include="ClientTests\TypeScript\TypesScriptTests.html" />
     <Content Include="html\buscarElementosConUnCssEspecifico.html" />
     <Content Include="html\CancelHoverOut.html" />
     <Content Include="html\DocumentWrite.html" />
     <Content Include="html\DocumentWrite.js" />
+    <Content Include="html\domReference.html" />
     <Content Include="html\HtmlPage1.html" />
+    <Content Include="html\JavascriptGetter.html" />
     <Content Include="html\jqueryDoSomeAfterTextChangedWithDelay.html" />
     <Content Include="html\resizable.html" />
     <Content Include="html\IEImgResizeEvents.html" />
@@ -1079,6 +1112,7 @@
     <Content Include="Scripts\jquery-2.0.3.min.js" />
     <Content Include="img\stupidFlanders.jpg" />
     <Content Include="Scripts\watch.js" />
+    <TypeScriptCompile Include="TypeScripts\MyAjaxTest.ts" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -1097,6 +1131,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="ClientTests\jQueryCallbacks\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
@@ -1132,10 +1167,17 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target> -->
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <TypeScriptTarget>ES3</TypeScriptTarget>
+    <TypeScriptRemoveComments>false</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>true</TypeScriptSourceMap>
+    <TypeScriptModuleKind>AMD</TypeScriptModuleKind>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <TypeScriptTarget>ES3</TypeScriptTarget>
+    <TypeScriptRemoveComments>true</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>false</TypeScriptSourceMap>
+    <TypeScriptModuleKind>AMD</TypeScriptModuleKind>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\TypeScript\Microsoft.TypeScript.targets" />
 </Project>

@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <!--<fieldset>
+        <legend>Caso 1</legend>
+        <a href="/backOffice/Eip/es-ES/d9d4f2a9-c53d-4083-9eaf-3cb0f4565940"><span contenteditable="true">Bug inicial. Tag con contentEditable rodeado por un anchor, me pone el cursor al principio. Comportamiento IE10</span></a>
+
+        Efecto que produce: Al hacer click sobre el texto, nos pone el cursor al principio y no nos deja seleccionar texto. Muy molesto para el usuario
+    </fieldset>
+    <fieldset>
+        <legend>Caso 2</legend>
+        <a data-href="/backOffice/Eip/es-ES/d9d4f2a9-c53d-4083-9eaf-3cb0f4565940"><span contenteditable="true">Corrección (Tag con contentEditable rodeado por un anchor). Se quita el href (y se guarda en el data)</span></a>
+    </fieldset>
+
+    <fieldset>
+        <legend>Caso 3</legend>
+
+        <a contenteditable="true" data-href="/backOffice/Eip/es-ES/d9d4f2a9-c53d-4083-9eaf-3cb0f4565940">Efecto colateral. Cuando el anchor tiene directamente contenteditable y el texto dentro sin TAG intermedio, NO NOS DEJA BORRAR con delete (si no tiene href)</a>
+        Efecto que produce: Al querer borrar con la tecla delete no nos deja. Muy molesto para el usuario
+    </fieldset>
+
+    <fieldset>
+        <legend>Caso 4</legend>
+        <a contenteditable="true" href="/backOffice/Eip/es-ES/d9d4f2a9-c53d-4083-9eaf-3cb0f4565940">Solución. No quitar el href para anchors contentEditable con el texto dentro SIN tag intermedio</a>
+    </fieldset>-->
+    
+    
+    
+    <!--<fieldset>
+        <legend>Poronga atómica</legend>
+        
+    </fieldset>-->
+    
+    <a data-href="http://www.andacagar.com">
+            <span contenteditable="true">
+                @Model.titulo
+            </span>
+        </a>
+</body>
+</html>

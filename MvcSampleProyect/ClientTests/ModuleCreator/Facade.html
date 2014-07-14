@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="/ClientTests/Framework/qunit-1.14.0.css" rel="stylesheet" />
+    <script src="/ClientTests/Framework/qunit.js"></script>
+    <script src="/ClientTests/Framework/sinon.js"></script>
+    <script src="../../Scripts/jquery-2.0.3.js"></script>
+    
+    
+    <script>
+        test("pepe",function() {
+            var MyModule = (function () {
+                function myClass() {
+
+                }
+                myClass.prototype = {
+                    isExecuted: false,
+                    doExecute:function() {
+                        this.isExecuted = true;
+                    },
+                    execute: function () {
+                        this.doExecute();
+                    }
+                };
+                
+
+                function myClassFacade() {
+                    this.myClass = new myClass();
+                }
+                
+                myClassFacade.prototype = {
+                    execute: function() {
+                        this.myClass.execute();
+                    }
+                };
+
+                return {
+                    MyClass: myClassFacade
+                };
+            })();
+            
+            
+            var facade = new MyModule.MyClass();
+            facade.execute();
+            ok(facade.myClass.isExecuted);
+        })
+    </script>
+</head>
+<body>
+     <div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+</body>
+</html>

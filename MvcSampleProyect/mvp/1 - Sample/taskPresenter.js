@@ -6,6 +6,7 @@
     function init() {
         view = _view;
         view.addCheckedHandler(function () {
+            // aquí primero haría llamada ajax para guardar etc
             view.remove();
         });
     }

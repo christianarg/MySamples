@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace SamplesTestProyect.Linq
@@ -12,6 +13,7 @@ namespace SamplesTestProyect.Linq
         {
             
             public string Name { get; set; }
+            public string LastName { get; set; }
         }
 
         [TestMethod]
@@ -42,6 +44,18 @@ namespace SamplesTestProyect.Linq
             AssertResult(result);
         }
 
+        [TestMethod]
+        public void GroupBySelectObject()
+        {
+            var personas = InitPersonas();
+
+            var result = personas
+                            .GroupBy(p => p.Name).ToList();
+                            //.Select(p => p.).ToList();
+
+            //AssertResult(result);
+        }
+
 
         private static void AssertResult(List<string> result)
         {
@@ -53,9 +67,9 @@ namespace SamplesTestProyect.Linq
         {
             var personas = new List<Persona>()
                 {
-                    new Persona() {Name = "Christian"},
-                    new Persona() {Name = "Pepo"},
-                    new Persona() {Name = "Christian"}
+                    new Persona() {Name = "Christian",LastName = "Rodriguez"},
+                    new Persona() {Name = "Pepo", LastName = "Perez"},
+                    new Persona() {Name = "Christian",LastName = "Andres"}
                 };
             return personas;
         }

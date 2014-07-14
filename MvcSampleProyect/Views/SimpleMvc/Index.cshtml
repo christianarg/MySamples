@@ -1,0 +1,16 @@
+﻿@model List<MvcSampleProyect.Controllers.SimpleMvc.Content>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@foreach(var content in Model)
+{
+    <div>@content.Name</div>
+}
+
+@*@Html.ActionLink("Crear Contenido","CreateContent")*@
+
+@Html.ActionLink("Crear Contenido","ShowCreateContent")
+

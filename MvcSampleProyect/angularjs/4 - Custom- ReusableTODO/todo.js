@@ -28,7 +28,8 @@
 angular.module('components', []).directive('todo', function () {
     return {
         restrict: 'E',
-        scope: {},
-        templateUrl: 'todotemplate.html'
+        scope: false,
+        templateUrl: 'todotemplate.html',
+        controller: TodoCtrl
     }
 });

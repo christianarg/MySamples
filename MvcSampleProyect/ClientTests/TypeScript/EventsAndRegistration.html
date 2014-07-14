@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title></title>
+        <link href="/ClientTests/Framework/qunit-1.14.0.css" rel="stylesheet" />
+        <script src="/ClientTests/Framework/qunit.js"></script>
+        <script src="/ClientTests/Framework/sinon.js"></script>
+        <script src="/Scripts/jquery-2.0.3.js"></script>
+        <script src="EventsAndRegistration.js"></script>
+    </head>
+    
+    <script>
+        //test('elTest', function () {
+        //     equal(MyNewModule.Pepe.MyPepe2.dapePapa(),'queonda');
+        //     alert(MyNewModule.Pepe.MyPepe2.toString());
+        //});
+
+        test('ElOtroTest', function () {
+            equal(EventsAndRegistration.RocketLaunchedEvent.eventName, 'EventsAndRegistration.RocketLaunchedEvent');
+
+            equal(EventsAndRegistration.RocketLaunchedEvent['eventName'], 'EventsAndRegistration.RocketLaunchedEvent');
+
+            equal(getEventName(EventsAndRegistration.RocketLaunchedEvent), 'EventsAndRegistration.RocketLaunchedEvent');
+
+            //alert(MyModule.Event.constructor);
+            //alert(MyModule.Event.constructor.name);
+        });
+
+        function getEventName(event) {
+            return event['eventName'];
+        }
+    </script>
+    <body>
+     <div id="qunit"></div>
+  <div id="qunit-fixture"></div>
+</body>
+</html>

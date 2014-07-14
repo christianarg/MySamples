@@ -1,0 +1,28 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+</head>
+    <body>
+        
+        <!--Comprobar que una referencia a un elemento del Dom es realmente una referencia
+        y no una copia. En este caso me guardo el dom en el ready(), luego al modificarlo
+        (como es contentEditable puedo escribir) al revisar el valor realmente ha cambiado-->
+
+        <div contenteditable="true" id="tosave">Hola</div>
+    
+        <a id="aver" href="javascript:void(0);">A ver </a>
+        <script>
+            var dom;
+            $(document).ready(function () {
+                dom = $('#tosave').get(0);
+            
+                $('#aver').click(function () {
+                    alert(dom.innerHTML);
+                });
+            });
+
+        </script>
+    </body>
+</html>
