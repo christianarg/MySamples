@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.1/jquery-ui.min.js"></script>
+    
+    <link href="https://code.jquery.com/ui/1.11.0/themes/smoothness/jquery-ui.css" rel="stylesheet"/>
+   
+    <style>
+        body
+        {
+            font-family: Verdana;
+        }
+    </style>
+</head>
+    <body>
+        <div>Resizable Normal</div>
+        <img id="imgResizable" src="../img/stupidFlanders.jpg" alt="" />
+    
+        <div>Resizable Aspect Ratio</div>
+        <img id="imgResizableMantainAspectRatio" src="../img/stupidFlanders.jpg" alt="" />
+
+        
+        <div>Resizable Aspect Ratio With Content Editable</div>
+        <div contenteditable="true">
+            <img id="imgResizableMantainAspectRatioContentEditable" src="../img/stupidFlanders.jpg" alt="" />
+        </div>
+
+        <script>
+            $(document).ready(function () {
+                $('#imgResizable').resizable();
+                $('#imgResizableMantainAspectRatio').resizable({ aspectRatio: true });
+                $('#imgResizableMantainAspectRatioContentEditable').resizable({ aspectRatio: true });
+            });
+        </script>
+
+    </body>
+</html>

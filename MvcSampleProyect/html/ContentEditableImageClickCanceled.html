@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+    <script src="http://layout.jquery-dev.com/lib/js/jquery.layout-latest.js"></script>
+
+
+    <style>
+        body
+        {
+            font-family: Verdana;
+        }
+
+        #myTooblar
+        {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background-color: white;
+            border: 1px solid black;
+        }
+
+        .btn:hover
+        {
+            color: orange;
+        }
+
+        .btn
+        {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="ui-layout-center">
+        Center
+        <div contenteditable="true">
+            <img id="myImg" src="/img/stupidFlanders.jpg" alt="" />
+        </div>
+    </div>
+
+    <div class="ui-layout-north">North</div>
+    <div class="ui-layout-south">South</div>
+    <div class="ui-layout-east">East</div>
+    <div class="ui-layout-west">West</div>
+
+    <script>
+        $(document).ready(function () {
+            $('body').layout();
+            //$('#myImg').click(function (e) {
+            //    e.stopPropagation();
+            //    e.preventDefault();
+            //    return false;
+            //});
+
+            //$('#myImg').mousedown(function (e) {
+            //    e.stopPropagation();
+            //    e.preventDefault();
+            //    return false;
+            //});
+
+            var toolbarHtml = '<div id="myTooblar"><span class="btn" id="btnClick">Boton con Click</span> | <span class="btn" id="btnMouseDown">Boton con MouseDown</span> | <span id="toolbarHandle">#Espacio para Draggar</span></div>';
+
+            $(toolbarHtml).appendTo($('body'));
+            $('#btnClick').click(function (e) {
+                alert('Clicado'); // No debería pasar nunca
+                e.stopPropagation();
+                e.preventDefault();
+                return false;
+            });
+            $('#btnMouseDown').mousedown(function (e) {
+                alert('MouseDown');
+                e.stopPropagation();
+                e.preventDefault();
+                return false;
+            });
+            $('#myTooblar').draggable({ handle: '#toolbarHandle' });
+        });
+
+    </script>
+
+</body>
+</html>

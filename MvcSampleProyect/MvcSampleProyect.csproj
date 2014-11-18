@@ -160,6 +160,8 @@
     <Content Include="ClientTests\ModuleCreator\ModuleCreator.js" />
     <Content Include="ClientTests\SinonSamples\SinonSamples.html" />
     <Content Include="ClientTests\SinonSamples\SinonSamples.js" />
+    <TypeScriptCompile Include="ClientTests\TypeScript\ThisAndThatTests.ts" />
+    <Content Include="ClientTests\TypeScript\ThisAndThatTests.html" />
     <Content Include="ClientTests\TypeScript\DefferredTests.html" />
     <TypeScriptCompile Include="ClientTests\TypeScript\DefferredTests.ts" />
     <Content Include="ClientTests\TypeScript\LinqJsTests.html" />
@@ -167,6 +169,9 @@
     <TypeScriptCompile Include="ClientTests\TypeScript\EventsAndRegistration.ts" />
     <TypeScriptCompile Include="ClientTests\TypeScript\LinqJsTests.ts" />
     <Content Include="html\ContentEditableIEHacks.html" />
+    <Content Include="html\ContentEditableImageClickCanceled.html" />
+    <Content Include="html\A -  Base.html" />
+    <Content Include="html\imageResizable.html" />
     <Content Include="html\EventDelegation.html" />
     <Content Include="html\eing.html" />
     <Content Include="Scripts\jquery.d.ts" />
