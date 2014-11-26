@@ -46,8 +46,12 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
     </Reference>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\..\..\..\..\..\..\Projectes\PortalBuilder\Dev\Dev\Libs\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="StackExchange.Redis">
+      <HintPath>..\packages\StackExchange.Redis.1.0.371\lib\net45\StackExchange.Redis.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
@@ -67,6 +71,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="AsyncAwait\AsyncAwaitTests.cs" />
     <Compile Include="Concurrency\TestDbContext.cs" />
     <Compile Include="Concurrency\ConcurrencyTest1.cs" />
     <Compile Include="CovarianceContraVariance\CovarianceContraVarianceTest.cs" />
@@ -82,6 +87,7 @@
     <Compile Include="Iterator\IteratorTest1.cs" />
     <Compile Include="EFRefresh\UnitTest3.cs" />
     <Compile Include="ExplicitInterface\ExplicitInterfaceTest.cs" />
+    <Compile Include="Redis\RedisTest.cs" />
     <Compile Include="Ref\RefTest.cs" />
     <Compile Include="StringEnums\StringEnumTests.cs" />
   </ItemGroup>
@@ -90,6 +96,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="AsyncAwait\ejemplo.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="DomainFactoryInjection\description.txt" />
     <Content Include="ExplicitInterface\description.txt" />
     <Content Include="Iterator\description.txt" />
