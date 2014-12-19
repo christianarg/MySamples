@@ -120,6 +120,7 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="Controllers\AjaxController.cs" />
+    <Compile Include="Controllers\Angular\AngularController.cs" />
     <Compile Include="Controllers\ExceptionInfo\ExceptionInfoController.cs" />
     <Compile Include="Controllers\SimpleMvc\SimpleMvcController.cs" />
     <Compile Include="Controllers\TypeScriptTest\TypeScriptTestController.cs" />
@@ -160,6 +161,12 @@
     <Content Include="ClientTests\ModuleCreator\ModuleCreator.js" />
     <Content Include="ClientTests\SinonSamples\SinonSamples.html" />
     <Content Include="ClientTests\SinonSamples\SinonSamples.js" />
+    <TypeScriptCompile Include="Scripts\MyAngular\app.ts" />
+    <TypeScriptCompile Include="Scripts\MyAngular\angular.d.ts" />
+    <Content Include="Scripts\MyAngular\myModalContent.html" />
+    <Content Include="Scripts\MyAngular\ui-bootstrap-tpls-0.12.0.min.js" />
+    <Content Include="Views\Angular\Layout.cshtml" />
+    <Content Include="Views\Angular\Index.cshtml" />
     <TypeScriptCompile Include="ClientTests\TypeScript\ThisAndThatTests.ts" />
     <Content Include="ClientTests\TypeScript\ThisAndThatTests.html" />
     <Content Include="ClientTests\TypeScript\DefferredTests.html" />
@@ -174,9 +181,14 @@
     <Content Include="html\imageResizable.html" />
     <Content Include="html\EventDelegation.html" />
     <Content Include="html\eing.html" />
+    <Content Include="html\memoryleaks\paginaPela.html" />
+    <Content Include="html\memoryleaks\jquery-ui.min.js" />
+    <Content Include="html\memoryleaks\jquery.min.js" />
+    <Content Include="html\memoryleaks\pruebaMemLeakJQueryUI.html" />
     <Content Include="Scripts\jquery.d.ts" />
     <Content Include="Scripts\linq.d.ts" />
     <Content Include="Scripts\linq.js" />
+    <Content Include="Views\Angular\ui-bootstrap-tpls-0.12.0.min.js" />
     <Content Include="Views\TypeScriptTest\Index.cshtml" />
     <Content Include="Views\ExceptionInfo\Index.cshtml" />
     <Content Include="Views\SimpleMvc\Index.cshtml" />
@@ -846,7 +858,9 @@
     <Content Include="Scripts\angular-loader.min.js.map" />
     <Content Include="Scripts\angular-cookies.min.js.map" />
     <Content Include="Scripts\angular-animate.min.js.map" />
-    <Content Include="Scripts\angular.min.js.map" />
+    <Content Include="Scripts\angular.min.js.map">
+      <DependentUpon>angular.js</DependentUpon>
+    </Content>
     <Content Include="Scripts\CkEditor\ckeditor_4.3.2_full\ckeditor\CHANGES.md" />
     <Content Include="Scripts\CkEditor\ckeditor_4.3.2_full\ckeditor\LICENSE.md" />
     <Content Include="Scripts\CkEditor\ckeditor_4.3.2_full\ckeditor\plugins\scayt\LICENSE.md" />
