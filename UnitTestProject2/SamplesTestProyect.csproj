@@ -38,6 +38,9 @@
     <Reference Include="Antlr3.Runtime">
       <HintPath>..\packages\WebGrease.1.3.0\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="CSScriptLibrary">
+      <HintPath>..\packages\CS-Script.3.8.10.0\lib\net45\CSScriptLibrary.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -51,6 +54,9 @@
     </Reference>
     <Reference Include="MongoDB.Driver">
       <HintPath>..\packages\mongocsharpdriver.1.9.2\lib\net35\MongoDB.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.CSharp">
+      <HintPath>..\packages\CS-Script.3.8.10.0\lib\net45\Mono.CSharp.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -81,6 +87,7 @@
     <Compile Include="Concurrency\TestDbContext.cs" />
     <Compile Include="Concurrency\ConcurrencyTest1.cs" />
     <Compile Include="CovarianceContraVariance\CovarianceContraVarianceTest.cs" />
+    <Compile Include="CsScript\CsScriptTest.cs" />
     <Compile Include="DomainFactoryInjection\CanBeImproved\CanBeImproved.cs" />
     <Compile Include="DomainFactoryInjection\Improved\Improved.cs" />
     <Compile Include="DynamicAndGenerics\DynamicAndGenericTests.cs" />
@@ -96,10 +103,14 @@
     <Compile Include="ExplicitInterface\ExplicitInterfaceTest.cs" />
     <Compile Include="Redis\RedisTest.cs" />
     <Compile Include="Ref\RefTest.cs" />
+    <Compile Include="CsScript\Scripting.cs" />
     <Compile Include="StringEnums\StringEnumTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="CsScript\Sumador.scriptcs">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
