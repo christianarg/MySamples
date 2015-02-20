@@ -1,14 +1,12 @@
-﻿/// <reference path="../../Scripts/jquery.d.ts" />
+/// <reference path="../../Scripts/jquery.d.ts" />
 /// <reference path="../Framework/qunit.d.ts" />
 var TestContext = (function () {
     function TestContext() {
     }
     return TestContext;
 })();
-
-// Variable global
+// Variable global 
 var textContext;
-
 QUnit.module("ThisAndThatTest", {
     setup: function () {
         textContext = new TestContext();
@@ -19,37 +17,29 @@ QUnit.module("ThisAndThatTest", {
     teardown: function () {
     }
 });
-
 test('1 - When Bind a Click using function() keyword "this" is the DomElement', function () {
     // ARRANGE
     var jSomeDom = textContext.jTestDom;
     jSomeDom.click(function () {
         textContext.testOutput = $(this).attr('id');
     });
-
     // ACT
     jSomeDom.click();
-
-    // ASSERT
+    // ASSERT 
     equal(textContext.testOutput, 'someDomId');
 });
-
 test('1.1 - When Bind a Click using function name keyword "this" is the DomElement and event Arguments recieved', function () {
     // ARRANGE
     var jSomeDom = textContext.jTestDom;
     jSomeDom.click(clickHandler);
-
     // ACT
     jSomeDom.click();
-
-    // ASSERT
+    // ASSERT 
     equal(textContext.testOutput, 'someDomId_click');
 });
-
 function clickHandler(evt) {
     textContext.testOutput = $(this).attr('id') + '_' + evt.type;
 }
-
 var ThisAndThatTestClass = (function () {
     function ThisAndThatTestClass(jDom) {
         this.someText = 'someText';
@@ -58,14 +48,12 @@ var ThisAndThatTestClass = (function () {
     ThisAndThatTestClass.prototype.getSomeText = function () {
         return this.someText;
     };
-
     ThisAndThatTestClass.prototype.bindHandlerWithLambda = function () {
         var _this = this;
         this.jTestDom.click(function () {
             textContext.testOutput = _this.someText;
         });
     };
-
     ThisAndThatTestClass.prototype.bindHandler = function () {
         // Va
         //this.jTestDom.click((evt) => this.myHandler(evt));
@@ -76,30 +64,24 @@ var ThisAndThatTestClass = (function () {
     };
     return ThisAndThatTestClass;
 })();
-
 test('2 - When Bind a Click using ()=> keyword "this" is the DomElement', function () {
     // ARRANGE
     var jTestDom = textContext.jTestDom;
     var testClass = new ThisAndThatTestClass(jTestDom);
     testClass.bindHandlerWithLambda();
-
     // ACT
     jTestDom.click();
-
-    // ASSERT
+    // ASSERT 
     equal(textContext.testOutput, 'someText');
 });
-
 test('2.1 - When Bind a Click using ()=> keyword "this" is the DomElement', function () {
     // ARRANGE
     var jTestDom = textContext.jTestDom;
     var testClass = new ThisAndThatTestClass(jTestDom);
     testClass.bindHandler();
-
     // ACT
     jTestDom.click();
-
-    // ASSERT
+    // ASSERT 
     equal(textContext.testOutput, 'someText_click');
 });
 //# sourceMappingURL=ThisAndThatTests.js.map

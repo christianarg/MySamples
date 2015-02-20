@@ -1,4 +1,4 @@
-﻿/// <reference path="../Scripts/jquery.d.ts" />
+/// <reference path="../Scripts/jquery.d.ts" />
 var myAjaxModule;
 (function (myAjaxModule) {
     var MyAjaxClass = (function () {
@@ -9,9 +9,7 @@ var myAjaxModule;
             var _this = this;
             $.ajax({
                 url: "/TypeScriptTest/AjaxCall/1"
-            }).then(function () {
-                return _this.AjaxRespomse;
-            });
+            }).then(function () { return _this.AjaxRespomse; });
         };
         MyAjaxClass.prototype.Aha = function (serverObject) {
             this.doer.Aha(serverObject);
@@ -22,7 +20,6 @@ var myAjaxModule;
         return MyAjaxClass;
     })();
     myAjaxModule.MyAjaxClass = MyAjaxClass;
-
     var StuffDoer = (function () {
         function StuffDoer() {
         }
@@ -32,7 +29,6 @@ var myAjaxModule;
         return StuffDoer;
     })();
 })(myAjaxModule || (myAjaxModule = {}));
-
 $(document).ready(function () {
     $('#clickToStuff').click(function () {
         var myClass = new myAjaxModule.MyAjaxClass();

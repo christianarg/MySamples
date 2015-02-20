@@ -1,4 +1,4 @@
-﻿var __extends = this.__extends || function (d, b) {
+var __extends = this.__extends || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
     function __() { this.constructor = d; }
     __.prototype = b.prototype;
@@ -13,7 +13,6 @@ var MoreTypescript;
         };
         return MyBaseClass;
     })();
-
     var MyOtherBaseClass = (function () {
         function MyOtherBaseClass() {
         }
@@ -21,7 +20,6 @@ var MoreTypescript;
         };
         return MyOtherBaseClass;
     })();
-
     var MyUltraClass = (function (_super) {
         __extends(MyUltraClass, _super);
         function MyUltraClass() {
@@ -30,9 +28,7 @@ var MoreTypescript;
         return MyUltraClass;
     })(MyBaseClass);
 })(MoreTypescript || (MoreTypescript = {}));
-
 var kito;
-
 var Mondongo = (function () {
     function Mondongo() {
     }

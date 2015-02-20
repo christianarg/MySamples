@@ -16,5 +16,17 @@ namespace MvcSampleProyect.Controllers.Angular
             return View();
         }
 
+
+        public ActionResult ControllerAs()
+        {
+            return View();
+        }
+
+        public ActionResult WithScope()
+        {
+            return View();
+        }
+
     }
+
 }

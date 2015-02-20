@@ -2,6 +2,7 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
 using StackExchange.Redis;
+using SamplesTestProyect.Common;
 
 namespace SamplesTestProyect.Redis
 {
@@ -40,6 +41,11 @@ namespace SamplesTestProyect.Redis
             Assert.IsNotNull(myClass);
             Assert.AreEqual("pepe",myClass.Id);
             Assert.AreEqual("MyValue", myClass.MyValue);
+        }
+
+        public void ListTest()
+        {
+            db.ListRightPush("contents", JsonConvert.SerializeObject(TestData.contents[0]));
         }
     }
 

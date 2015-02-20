@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Angular/Layout.cshtml";
+}
+<script src="app.js"></script>
+<h2>Index</h2>
+<div ng-controller="MyController as ctrl">
+    {{ctrl.helloWorld}}
+
+    <br />
+    <input type="text" ng-model="ctrl.helloWorld" />
+
+</div>
+
+
+<div ng-controller="ModalDemoCtrl" >
+    <button class="btn btn-default" ng-click="open()">Open me!</button>
+    <button class="btn btn-default" ng-click="open('lg')">Large modal</button>
+    <button class="btn btn-default" ng-click="open('sm')">Small modal</button>
+    <div ng-show="selected">Selection from a modal: {{ selected }}</div>
+</div>
+
+<div style="color: red" draggable>
+    Esto es, DRAGGABLEEE
+</div>
+
+@*<div ng-controller="AlertDemoCtrl">
+  <alert ng-repeat="alert in alerts" type="{{alert.type}}" close="closeAlert($index)">{{alert.msg}}</alert>
+  <button class='btn btn-default' ng-click="addAlert()">Add Alert</button>
+</div>*@

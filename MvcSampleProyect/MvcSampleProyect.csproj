@@ -14,7 +14,7 @@
     <RootNamespace>MvcSampleProyect</RootNamespace>
     <AssemblyName>MvcSampleProyect</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <TypeScriptToolsVersion>1.0</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>1.1</TypeScriptToolsVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -42,6 +42,9 @@
   <ItemGroup>
     <Reference Include="Antlr3.Runtime">
       <HintPath>..\packages\WebGrease.1.3.0\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
@@ -161,12 +164,16 @@
     <Content Include="ClientTests\ModuleCreator\ModuleCreator.js" />
     <Content Include="ClientTests\SinonSamples\SinonSamples.html" />
     <Content Include="ClientTests\SinonSamples\SinonSamples.js" />
-    <TypeScriptCompile Include="Scripts\MyAngular\app.ts" />
+    <Content Include="Views\Angular\WithScope.cshtml" />
+    <Content Include="Views\Angular\Index.cshtml" />
+    <TypeScriptCompile Include="Scripts\angular-ui-bootstrap.d.ts" />
+    <TypeScriptCompile Include="Scripts\jqueryui.d.ts" />
     <TypeScriptCompile Include="Scripts\MyAngular\angular.d.ts" />
     <Content Include="Scripts\MyAngular\myModalContent.html" />
+    <Content Include="Scripts\MyAngular\ui-bootstrap-tpls-0.12.0.js" />
     <Content Include="Scripts\MyAngular\ui-bootstrap-tpls-0.12.0.min.js" />
     <Content Include="Views\Angular\Layout.cshtml" />
-    <Content Include="Views\Angular\Index.cshtml" />
+    <Content Include="Views\Angular\ControllerAs.cshtml" />
     <TypeScriptCompile Include="ClientTests\TypeScript\ThisAndThatTests.ts" />
     <Content Include="ClientTests\TypeScript\ThisAndThatTests.html" />
     <Content Include="ClientTests\TypeScript\DefferredTests.html" />
@@ -1130,6 +1137,8 @@
     <Content Include="Scripts\jquery-2.0.3.min.js" />
     <Content Include="img\stupidFlanders.jpg" />
     <Content Include="Scripts\watch.js" />
+    <TypeScriptCompile Include="Scripts\MyAngular\ControllerAs\app.ts" />
+    <TypeScriptCompile Include="Scripts\MyAngular\WithScope\app.ts" />
     <TypeScriptCompile Include="TypeScripts\MyAjaxTest.ts" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

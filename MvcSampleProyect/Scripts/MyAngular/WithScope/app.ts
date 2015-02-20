@@ -1,4 +1,5 @@
-﻿/// <reference path="angular.d.ts" />
+﻿/// <reference path="../angular.d.ts" />
+/// <reference path="../../jqueryui.d.ts" />
 
 var app = angular.module('myHelloWorld', ['ui.bootstrap']);
 
@@ -8,19 +9,31 @@ class MyController {
     constructor() {
         this.helloWorld = 'helloWorld Paco';
     }
-}
+} 
+
+
+app.directive('draggable', () => {
+    return {
+        // A = attribute, E = Element, C = Class and M = HTML Comment
+        restrict: 'A',
+        link(scope, element, attrs) {
+            $(element).draggable();
+        }
+    }
+});
 
 app.controller('MyController', MyController);
 
 
 
-app.controller('ModalDemoCtrl', ($scope, $modal, $log) => {
+app.controller('ModalDemoCtrl', ($scope, $modal: ng.ui.bootstrap.IModalService, $log) => {
 
     $scope.items = ['item1', 'item2', 'item3'];
 
     $scope.open = size => {
-
         var modalInstance = $modal.open({
+            windowClass: 'draggable',
+            backdrop: 'static',
             templateUrl: '/Scripts/MyAngular/myModalContent.html',
             controller: 'ModalInstanceCtrl',
             size: size,
@@ -28,6 +41,15 @@ app.controller('ModalDemoCtrl', ($scope, $modal, $log) => {
                 items: () => $scope.items
             }
         });
+
+        setTimeout(() => {
+
+        }, 1000);
+        modalInstance.opened.then(() => {
+            //$('.modal-dialog').draggable();
+            //$('.modal-dialog').draggable({ handle: '.modal-header' });
+        });
+        
 
         modalInstance.result.then(selectedItem => {
             $scope.selected = selectedItem;
@@ -55,7 +77,6 @@ app.controller('ModalInstanceCtrl', ($scope, $modalInstance, items) => {
         $modalInstance.dismiss('cancel');
     };
 });
-
 
 app.controller('AlertDemoCtrl', ($scope) => {
     $scope.alerts = [

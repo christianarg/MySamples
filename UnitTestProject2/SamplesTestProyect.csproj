@@ -44,6 +44,12 @@
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib">
+      <HintPath>..\packages\SharpZipLib.0.86.0\lib\20\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Lucene.Net">
+      <HintPath>..\packages\Lucene.Net.3.0.3\lib\NET40\Lucene.Net.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <Private>True</Private>
@@ -84,6 +90,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="AsyncAwait\AsyncAwaitTests.cs" />
+    <Compile Include="Common\TestData.cs" />
     <Compile Include="Concurrency\TestDbContext.cs" />
     <Compile Include="Concurrency\ConcurrencyTest1.cs" />
     <Compile Include="CovarianceContraVariance\CovarianceContraVarianceTest.cs" />
@@ -95,6 +102,8 @@
     <Compile Include="Inheritance\InheritanceTests.cs" />
     <Compile Include="JsonNet\UnitTest1.cs" />
     <Compile Include="Linq\GroupByTest.cs" />
+    <Compile Include="Linq\OrderTests.cs" />
+    <Compile Include="LuceneTests\LuceneTest.cs" />
     <Compile Include="Mongo\MongoTests.cs" />
     <Compile Include="Partials\Partials.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
