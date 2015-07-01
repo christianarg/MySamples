@@ -1,4 +1,5 @@
-/// <reference path="myangular/angular.d.ts" />
+/// <reference path="../myangular/angular.d.ts" />
+
 // Type definitions for Angular UI Bootstrap 0.11.0
 // Project: https://github.com/angular-ui/bootstrap
 // Definitions by: Brian Surowiec <https://github.com/xt0rted>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO;
+using System.Runtime.Serialization;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Threading.Tasks;
 
@@ -32,6 +33,35 @@ namespace SamplesTestProyect.AsyncAwait
             Directory.GetCurrentDirectory();
         }
 
+        [TestMethod]
+        public async Task HandleExceptionAsync()
+        {
+            bool hapetao = false;
+            try
+            {
+                var data = await PetarAsync();
+            }
+            catch (MyCustomTestException cex)
+            {
+                Assert.Fail("Por aqui lamentablemente NO pasa");
+            }
+            catch (Exception ex)
+            {
+                hapetao = true;
+                Assert.IsTrue(ex.InnerException is MyCustomTestException);
+            }
+            Assert.IsTrue(hapetao);
+        }
+
+        private async Task<string> PetarAsync()
+        {
+            var task = Task<string>.Factory.StartNew(() =>
+            {
+                throw new MyCustomTestException();
+            });
+            return task.Result;
+        }
+
         private async Task<string> ReadFileAsync()
         {
             using (var reader = new StreamReader("AsyncAwait\\ejemplo.txt"))
@@ -40,9 +70,34 @@ namespace SamplesTestProyect.AsyncAwait
                 return data;
             }
         }
+    }
 
+    [Serializable]
+    public class MyCustomTestException : Exception
+    {
+        //
+        // For guidelines regarding the creation of new exception types, see
+        //    http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpgenref/html/cpconerrorraisinghandlingguidelines.asp
+        // and
+        //    http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dncscol/html/csharp07192001.asp
+        //
 
-       
+        public MyCustomTestException()
+        {
+        }
 
+        public MyCustomTestException(string message) : base(message)
+        {
+        }
+
+        public MyCustomTestException(string message, Exception inner) : base(message, inner)
+        {
+        }
+
+        protected MyCustomTestException(
+            SerializationInfo info,
+            StreamingContext context) : base(info, context)
+        {
+        }
     }
 }

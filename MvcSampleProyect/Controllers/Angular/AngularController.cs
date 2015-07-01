@@ -22,7 +22,17 @@ namespace MvcSampleProyect.Controllers.Angular
             return View();
         }
 
+        public ActionResult ControllerAsDynamic()
+        {
+            return View();
+        }
+
         public ActionResult WithScope()
+        {
+            return View();
+        }
+
+        public ActionResult WithScopeDynamic()
         {
             return View();
         }

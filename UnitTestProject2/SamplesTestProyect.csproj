@@ -100,6 +100,7 @@
     <Compile Include="DynamicAndGenerics\DynamicAndGenericTests.cs" />
     <Compile Include="FuncAndAction\UnitTest1.cs" />
     <Compile Include="Inheritance\InheritanceTests.cs" />
+    <Compile Include="JsonDates\JsonDatesTests.cs" />
     <Compile Include="JsonNet\UnitTest1.cs" />
     <Compile Include="Linq\GroupByTest.cs" />
     <Compile Include="Linq\OrderTests.cs" />
@@ -113,7 +114,9 @@
     <Compile Include="Redis\RedisTest.cs" />
     <Compile Include="Ref\RefTest.cs" />
     <Compile Include="CsScript\Scripting.cs" />
+    <Compile Include="SortedListTests\SortedListTests.cs" />
     <Compile Include="StringEnums\StringEnumTests.cs" />
+    <Compile Include="String\StringTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

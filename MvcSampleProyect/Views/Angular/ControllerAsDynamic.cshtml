@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Angular/LayoutDynamic.cshtml";
+}
+<script src="~/MyAngular/ControllerAsDynamic/controllerAsDynamic.js"></script>
+
+<h2>Index</h2>
+
+<div ng-controller="ModalDemoCtrl2 as ctrl">
+    <h1>{{ctrl.myCosa}}</h1>
+    <h1>{{myCosa}}</h1>
+
+    <h1>{{ctrl.holatarola}}</h1>
+
+    <button ng-click="ctrl.elclick()">Click!</button>
+    <button ng-click="ctrl.otroclick()">OtroClick!</button>
+</div>

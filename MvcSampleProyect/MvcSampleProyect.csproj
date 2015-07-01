@@ -166,12 +166,17 @@
     <Content Include="ClientTests\SinonSamples\SinonSamples.js" />
     <Content Include="Views\Angular\WithScope.cshtml" />
     <Content Include="Views\Angular\Index.cshtml" />
+    <Content Include="Views\Angular\WithScopeDynamic.cshtml" />
+    <Content Include="Views\Angular\LayoutDynamic.cshtml" />
+    <Content Include="Views\Angular\ControllerAsDynamic.cshtml" />
+    <TypeScriptCompile Include="MyAngular\ControllerAsDynamic\controllerAsDynamic.ts" />
+    <TypeScriptCompile Include="MyAngular\WithScopeDynamic\withScopeDynamic.ts" />
     <TypeScriptCompile Include="Scripts\angular-ui-bootstrap.d.ts" />
     <TypeScriptCompile Include="Scripts\jqueryui.d.ts" />
-    <TypeScriptCompile Include="Scripts\MyAngular\angular.d.ts" />
-    <Content Include="Scripts\MyAngular\myModalContent.html" />
-    <Content Include="Scripts\MyAngular\ui-bootstrap-tpls-0.12.0.js" />
-    <Content Include="Scripts\MyAngular\ui-bootstrap-tpls-0.12.0.min.js" />
+    <TypeScriptCompile Include="MyAngular\angular.d.ts" />
+    <Content Include="MyAngular\myModalContent.html" />
+    <Content Include="MyAngular\ui-bootstrap-tpls-0.12.0.js" />
+    <Content Include="MyAngular\ui-bootstrap-tpls-0.12.0.min.js" />
     <Content Include="Views\Angular\Layout.cshtml" />
     <Content Include="Views\Angular\ControllerAs.cshtml" />
     <TypeScriptCompile Include="ClientTests\TypeScript\ThisAndThatTests.ts" />
@@ -1137,8 +1142,8 @@
     <Content Include="Scripts\jquery-2.0.3.min.js" />
     <Content Include="img\stupidFlanders.jpg" />
     <Content Include="Scripts\watch.js" />
-    <TypeScriptCompile Include="Scripts\MyAngular\ControllerAs\app.ts" />
-    <TypeScriptCompile Include="Scripts\MyAngular\WithScope\app.ts" />
+    <TypeScriptCompile Include="MyAngular\ControllerAs\controllerAs.ts" />
+    <TypeScriptCompile Include="MyAngular\WithScope\withScope.ts" />
     <TypeScriptCompile Include="TypeScripts\MyAjaxTest.ts" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -1159,7 +1164,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="ClientTests\jQueryCallbacks\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
