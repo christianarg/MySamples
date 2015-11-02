@@ -11,25 +11,31 @@ namespace ImpromptuInterfaceTests
         [TestMethod]
         public void ExpandoForlerdosTest()
         {
-            dynamic expando = new ExpandoObject();
-            expando.El = "Hola";
-            expando.Cosito = "Mostru";
+            var expando = CreateExpando();
 
             Assert.AreEqual("Hola", expando.El);
             Assert.AreEqual("Mostru", expando.Cosito);
+            Assert.AreEqual("HolaMostru", expando.Toma());
         }
 
         [TestMethod]
         public void ActLikeTest()
         {
-            dynamic expando = new ExpandoObject();
-            //dynamic expando = Build<ExpandoObject>.NewObject(El: "Test", Cosito: "Mostru");
-            expando.El = "Hola";
-            expando.Cosito = "Mostru";
+            var expando = CreateExpando();
 
             IMyCoso micoso = Impromptu.ActLike<IMyCoso>(expando);
             Assert.AreEqual("Hola", micoso.El);
             Assert.AreEqual("Mostru", micoso.Cosito);
+            Assert.AreEqual("HolaMostru", micoso.Toma());
+        }
+
+        private static dynamic CreateExpando()
+        {
+            dynamic expando = new ExpandoObject();
+            expando.El = "Hola";
+            expando.Cosito = "Mostru";
+            expando.Toma = new Func<string>(() => { return expando.El + expando.Cosito; });
+            return expando;
         }
     }
 
@@ -37,6 +43,7 @@ namespace ImpromptuInterfaceTests
     {
         string El { get; set; }
         string Cosito { get; set; }
+        string Toma();
     }
 
 
