@@ -1,0 +1,38 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+
+    <style>
+        body {
+            font-family: Verdana;
+        }
+    </style>
+</head>
+<body>
+<!--<label for="file">
+    Vamos jose-->
+<input type="file" id="file" />
+<!--</label>-->
+<button id="elboton">TOMA</button>
+
+<script>
+    $(document).ready(function() {
+
+
+        $('#elboton').click(function() {
+            var jFileUpload = $('#file');
+            var fileUploadDom = jFileUpload[0];
+            jFileUpload.change(function () {
+                alert(fileUploadDom.files[0]);
+            });
+
+            jFileUpload.click();
+            //kito.multiple = false;
+        });
+    });
+</script>
+
+</body>
+</html>

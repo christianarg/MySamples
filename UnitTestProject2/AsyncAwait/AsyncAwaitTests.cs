@@ -25,6 +25,14 @@ namespace SamplesTestProyect.AsyncAwait
             return task.Result;
         }
 
+
+        [TestMethod]
+        public void ReadSync()
+        {
+            var data = ReadStringAsync().Result;
+            Assert.AreEqual(data, "Prueba");
+        }
+
         [TestMethod]
         public async Task TestReadFileAsync()
         {
@@ -48,9 +56,18 @@ namespace SamplesTestProyect.AsyncAwait
             catch (Exception ex)
             {
                 hapetao = true;
+                Assert.IsTrue(ex is AggregateException);
                 Assert.IsTrue(ex.InnerException is MyCustomTestException);
             }
             Assert.IsTrue(hapetao);
+        }
+
+        [TestMethod]
+        public void HandleExceptionAsync2()
+        {
+            var task = PetarAsync();
+            task.Wait();
+            var result = task.Result;
         }
 
         private async Task<string> PetarAsync()

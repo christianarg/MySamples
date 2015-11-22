@@ -101,9 +101,10 @@
     <Compile Include="FuncAndAction\UnitTest1.cs" />
     <Compile Include="Inheritance\InheritanceTests.cs" />
     <Compile Include="JsonDates\JsonDatesTests.cs" />
-    <Compile Include="JsonNet\UnitTest1.cs" />
+    <Compile Include="JsonNet\JsonNetTests.cs" />
     <Compile Include="Linq\GroupByTest.cs" />
     <Compile Include="Linq\OrderTests.cs" />
+    <Compile Include="Lists\UnitTest1.cs" />
     <Compile Include="LuceneTests\LuceneTest.cs" />
     <Compile Include="Mongo\MongoTests.cs" />
     <Compile Include="Partials\Partials.cs" />

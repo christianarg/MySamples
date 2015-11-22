@@ -29,8 +29,17 @@ namespace SamplesTestProyect.String
             Assert.IsTrue(string.IsNullOrWhiteSpace(emptyStringWithTilde));
             Assert.IsTrue(string.IsNullOrWhiteSpace(emptyStringWithStringEmpty));
             Assert.IsTrue(string.IsNullOrWhiteSpace(whiteSpace));
+        }
 
 
+        [TestMethod]
+        public void TestTrim()
+        {
+            const string myString = "/jose";
+
+            var trimmed = myString.Trim('/');
+
+            Assert.AreEqual("jose", trimmed);
         }
     }
 }
