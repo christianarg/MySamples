@@ -84,7 +84,9 @@
     </When>
     <Otherwise>
       <ItemGroup>
-        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework" />
+        <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework">
+          <Private>False</Private>
+        </Reference>
       </ItemGroup>
     </Otherwise>
   </Choose>
@@ -100,10 +102,15 @@
     <Compile Include="DynamicAndGenerics\DynamicAndGenericTests.cs" />
     <Compile Include="FuncAndAction\UnitTest1.cs" />
     <Compile Include="Inheritance\InheritanceTests.cs" />
+    <Compile Include="Inheritance\Loco\Common\Common.cs" />
+    <Compile Include="Inheritance\Loco\ReadModel\ReadModel.cs" />
+    <Compile Include="Inheritance\Loco\UyQueLocoTest.cs" />
+    <Compile Include="Inheritance\Loco\WriteModel\WriteModel.cs" />
     <Compile Include="JsonDates\JsonDatesTests.cs" />
     <Compile Include="JsonNet\JsonNetTests.cs" />
     <Compile Include="Linq\GroupByTest.cs" />
     <Compile Include="Linq\OrderTests.cs" />
+    <Compile Include="Linq\IterateWithTakeSkip.cs" />
     <Compile Include="Lists\UnitTest1.cs" />
     <Compile Include="LuceneTests\LuceneTest.cs" />
     <Compile Include="Mongo\MongoTests.cs" />
