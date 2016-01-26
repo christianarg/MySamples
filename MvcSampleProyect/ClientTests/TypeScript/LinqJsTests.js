@@ -13,7 +13,9 @@ test('GroupBy', function () {
     myArray.push(new MyTestClass('jorge', 'perez'));
     myArray.push(new MyTestClass('paco', 'van der jose'));
     //ACT
-    var groupedByPaco = Enumerable.From(myArray).GroupBy(function (c) { return c.nombre; }).Where(function (g) {
+    var groupedByPaco = Enumerable.From(myArray)
+        .GroupBy(function (c) { return c.nombre; })
+        .Where(function (g) {
         return g.Key() == 'paco';
     }).Select('$.ToArray()').ToArray()[0];
     // ASSERT 

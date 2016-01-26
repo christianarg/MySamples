@@ -14,13 +14,14 @@
     <RootNamespace>MvcSampleProyect</RootNamespace>
     <AssemblyName>MvcSampleProyect</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <TypeScriptToolsVersion>1.1</TypeScriptToolsVersion>
+    <TypeScriptToolsVersion>1.7</TypeScriptToolsVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -164,6 +165,7 @@
     <Content Include="ClientTests\ModuleCreator\ModuleCreator.js" />
     <Content Include="ClientTests\SinonSamples\SinonSamples.html" />
     <Content Include="ClientTests\SinonSamples\SinonSamples.js" />
+    <Content Include="html\falsasPromesas.html" />
     <Content Include="html\fileUploadTest.html" />
     <Content Include="Views\Angular\WithScope.cshtml" />
     <Content Include="Views\Angular\Index.cshtml" />
@@ -1145,6 +1147,7 @@
     <Content Include="Scripts\watch.js" />
     <TypeScriptCompile Include="MyAngular\ControllerAs\controllerAs.ts" />
     <TypeScriptCompile Include="MyAngular\WithScope\withScope.ts" />
+    <TypeScriptCompile Include="TypeScripts\FalsasPromesas.ts" />
     <TypeScriptCompile Include="TypeScripts\MyAjaxTest.ts" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

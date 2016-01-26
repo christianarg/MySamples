@@ -16,5 +16,11 @@ namespace MvcSampleProyect.Controllers
             return Json(new { MyProperty = "Hola Tarola" }, JsonRequestBehavior.AllowGet);
         }
 
+
+        public string ReturnInput(string input)
+        {
+            // para pruebas con ajax. Simplemente devuelve la entrada
+            return input;
+        }
     }
 }
