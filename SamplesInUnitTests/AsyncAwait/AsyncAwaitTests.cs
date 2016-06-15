@@ -18,20 +18,20 @@ namespace SamplesTestProyect.AsyncAwait
             Directory.GetCurrentDirectory();
         }
 
-        private async Task<string> ReadStringAsync()
-        {
-            var task = Task.Factory.StartNew(() => "Prueba");
-
-            return task.Result;
-        }
-
-
         [TestMethod]
         public void ReadSync()
         {
             var data = ReadStringAsync().Result;
             Assert.AreEqual(data, "Prueba");
         }
+
+        private async Task<string> ReadStringAsync()
+        {
+            var task = Task.Factory.StartNew(() => "Prueba");
+
+            return task.Result;
+        }
+      
 
         [TestMethod]
         public async Task TestReadFileAsync()
