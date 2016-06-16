@@ -46,7 +46,6 @@ namespace SamplesTestProyect.Redis
             Assert.AreEqual("MyValue", myClass.MyValue);
         }
 
-
         [TestMethod]
         public void InvalidateDependencies()
         {
