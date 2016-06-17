@@ -3,22 +3,24 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
 using StackExchange.Redis;
 using SamplesTestProyect.Common;
+using System.Threading.Tasks;
 
 namespace SamplesTestProyect.Redis
 {
     [TestClass]
     public class RedisTest
     {
-        readonly ConnectionMultiplexer redis = ConnectionMultiplexer.Connect("");
+        const string redisConfiguration = "";
+        const string redisServer = "";
+        readonly ConnectionMultiplexer redis = ConnectionMultiplexer.Connect(redisConfiguration);
         IDatabase db;
 
         [TestInitialize]
         public void TestInit()
         {
             db = redis.GetDatabase();
-            var server = redis.GetServer("");
+            var server = redis.GetServer(redisServer);
             server.FlushDatabase();
-            //.FlushAllDatabases();
         }
 
         [TestMethod]
@@ -42,12 +44,13 @@ namespace SamplesTestProyect.Redis
             var myClass = db.Get<MyClass>("myHash");
 
             Assert.IsNotNull(myClass);
-            Assert.AreEqual("pepe",myClass.Id);
+            Assert.AreEqual("pepe", myClass.Id);
             Assert.AreEqual("MyValue", myClass.MyValue);
         }
 
+
         [TestMethod]
-        public void InvalidateDependencies()
+        public void InvalidateDependenciesWithSet()
         {
             // ARRANGE
             //db.fl
@@ -91,6 +94,69 @@ namespace SamplesTestProyect.Redis
             Assert.IsNull(db.Get<MyClass>("Contents-2"));
             Assert.IsNull(db.Get<MyClass>("Contents-3"));
             Assert.AreEqual(0, db.SetMembers("Contents").Length);
+        }
+
+        [TestMethod]
+        public void SimpleLua()
+        {
+            // ARRANGe
+            const string Script = "redis.call('set', @key, @value)";
+            var prepared = LuaScript.Prepare(Script);
+            // ACT
+            db.ScriptEvaluate(prepared, new { key = (RedisKey)"mykey", value = 123 });
+            // ASSERT
+            var value = db.StringGet("mykey");
+            Assert.AreEqual("123", value.ToString());
+        }
+
+        /// <summary>
+        /// Multiple delete atomic:
+        /// 
+        /// http://stackoverflow.com/questions/4006324/how-to-atomically-delete-keys-matching-a-pattern-using-redis
+        /// 
+        /// Warning: KEYS puede NO es recomendado ya que es siempre O(N) (lo tiene que recorrer TODO)
+        /// http://redis.io/commands/KEYS
+        /// </summary>
+        [TestMethod]
+        public void InvalidateDependenciesWithLua()
+        {
+            // ARRANGE
+
+            db.Set("Contents-1", new MyClass()
+            {
+                Id = "1",
+                MyValue = "MyValue"
+            });
+
+            db.Set("Contents-2", new MyClass()
+            {
+                Id = "2",
+                MyValue = "MyValue2"
+            });
+
+            db.Set("Contents-3", new MyClass()
+            {
+                Id = "3",
+                MyValue = "MyValue3"
+            });
+
+            // comprobar precondición
+            var contents2 = db.Get<MyClass>("Contents-2");
+            Assert.IsNotNull(contents2);
+
+            // ACT
+            //const string Script = "redis.call('del', unpack(redis.call('keys', 'Contents-*')))";
+            //var prepared = LuaScript.Prepare(Script);
+            //db.ScriptEvaluate(prepared);
+
+            const string Script = "redis.call('del', unpack(redis.call('keys', @prefix..'*')))";
+            var prepared = LuaScript.Prepare(Script);
+            db.ScriptEvaluate(prepared, new { prefix = "Contents-" });
+
+            // ASSERT
+            Assert.IsNull(db.Get<MyClass>("Contents-1"));
+            Assert.IsNull(db.Get<MyClass>("Contents-2"));
+            Assert.IsNull(db.Get<MyClass>("Contents-3"));
         }
 
         public void ListTest()
