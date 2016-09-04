@@ -10,7 +10,7 @@ using System.Threading.Tasks;
  *
  * PRO: Desde la capa de aplicación queda muy claro como funciona y no se ve el método AddLocalization
  * CONTRA: Desde el dominio, alguen se puede confundir y puede no saber si llamar a Content.AddLocalization
- */ 
+ */
 namespace SamplesTestProyect.ExplicitInterface.Mejorable
 {
     public class LocalizationAppSvc
@@ -59,7 +59,5 @@ namespace SamplesTestProyect.ExplicitInterface.Mejorable
         }
     }
 
-    public class Localization
-    {
-    }
+    public class Localization { }
 }

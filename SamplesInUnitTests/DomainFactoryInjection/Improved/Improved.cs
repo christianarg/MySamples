@@ -43,7 +43,8 @@ namespace SamplesTestProyect.ExplicitInterface.Improved
         private List<Localization> Localizations = new List<Localization>();
 
         /// <summary>
-        /// Como forzamos a 
+        /// Como forzamos a que el parámetro sea una factory, nos aseguramos
+        /// que solo se puede crear a través de la clase con la lógica correcta para crear
         /// </summary>
         /// <param name="factory"></param>
         public void CreateLocalization(ILocalizationFactory factory)
@@ -52,7 +53,5 @@ namespace SamplesTestProyect.ExplicitInterface.Improved
         }
     }
 
-    public class Localization
-    {
-    }
+    public class Localization { }
 }

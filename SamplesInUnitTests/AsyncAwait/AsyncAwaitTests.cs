@@ -9,7 +9,6 @@ namespace SamplesTestProyect.AsyncAwait
     [TestClass]
     public class AsyncAwaitTests
     {
-
         [TestMethod]
         public async Task UltraSimpleAsyncTest()
         {
@@ -25,20 +24,42 @@ namespace SamplesTestProyect.AsyncAwait
             Assert.AreEqual(data, "Prueba");
         }
 
-        private async Task<string> ReadStringAsync()
-        {
-            var task = Task.Factory.StartNew(() => "Prueba");
-
-            return task.Result;
-        }
-      
-
         [TestMethod]
         public async Task TestReadFileAsync()
         {
             var data = await ReadFileAsync();
             Assert.AreEqual(data, "Texto de ejemplo");
             Directory.GetCurrentDirectory();
+        }
+
+        [TestMethod]
+        public async Task HandleExceptionAsyncSinAwait()
+        {
+            bool hapetao = false;
+            try
+            {
+                var data = await PetarAsyncSinAwait();
+            }
+            catch (MyCustomTestException)
+            {
+                Assert.Fail("Por aqui lamentablemente NO debería pasar");
+            }
+            catch (Exception ex)
+            {
+                hapetao = true;
+                Assert.IsTrue(ex is AggregateException);
+                Assert.IsTrue(ex.InnerException is MyCustomTestException);
+            }
+            Assert.IsTrue(hapetao);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(AggregateException))]
+        public void HandleExceptionAsync2SinAwait()
+        {
+            var task = PetarAsyncSinAwait();
+            task.Wait();
+            var result = task.Result;
         }
 
         [TestMethod]
@@ -51,32 +72,43 @@ namespace SamplesTestProyect.AsyncAwait
             }
             catch (MyCustomTestException cex)
             {
-                Assert.Fail("Por aqui lamentablemente NO pasa");
-            }
-            catch (Exception ex)
-            {
                 hapetao = true;
-                Assert.IsTrue(ex is AggregateException);
-                Assert.IsTrue(ex.InnerException is MyCustomTestException);
+                Assert.IsTrue(cex is MyCustomTestException);
+            }
+            catch (Exception)
+            {
+                Assert.Fail("Por aqui lamentablemente NO debería pasar");
             }
             Assert.IsTrue(hapetao);
         }
 
         [TestMethod]
-        public void HandleExceptionAsync2()
+        [ExpectedException(typeof(MyCustomTestException))]
+        public async Task HandleExceptionAsync2()
         {
-            var task = PetarAsync();
-            task.Wait();
-            var result = task.Result;
+            await PetarAsync();
+        }
+
+        private async Task<string> ReadStringAsync()
+        {
+            return await Task.Factory.StartNew(() => "Prueba");
+        }
+
+        private async Task<string> PetarAsyncSinAwait()
+        {
+            var task = Task<string>.Factory.StartNew(() =>
+             {
+                 throw new MyCustomTestException();
+             });
+            return task.Result;
         }
 
         private async Task<string> PetarAsync()
         {
-            var task = Task<string>.Factory.StartNew(() =>
+            return await Task<string>.Factory.StartNew(() =>
             {
                 throw new MyCustomTestException();
             });
-            return task.Result;
         }
 
         private async Task<string> ReadFileAsync()
