@@ -75,6 +75,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data.Entity" />
     <Reference Include="System.Transactions" />
   </ItemGroup>
@@ -122,6 +123,7 @@
     <Compile Include="Iterator\IteratorTest1.cs" />
     <Compile Include="EFRefresh\UnitTest3.cs" />
     <Compile Include="ExplicitInterface\ExplicitInterfaceTest.cs" />
+    <Compile Include="ReadSettings\ReadSettingsToCacheOrNotToCache.cs" />
     <Compile Include="Redis\RedisTest.cs" />
     <Compile Include="Ref\RefTest.cs" />
     <Compile Include="CsScript\Scripting.cs" />
