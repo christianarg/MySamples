@@ -216,4 +216,6 @@ pip-log.txt
 /ImpromptuInterfaceTests/packages
 /SamplesInUnitTests/packages
 /MvcSampleProyect/packages
+/HttpClientHell/packages
+/HttpClientHell/.vs
 /SamplesInUnitTests/.vs/SamplesTestProyect/v15/Server/sqlite3
