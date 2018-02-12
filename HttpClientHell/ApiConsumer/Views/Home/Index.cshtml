@@ -3,3 +3,8 @@
 }
 
 <h1>@ViewBag.Values</h1>
+
+@if(ViewBag.Exception != null)
+{
+    <div>@ViewBag.Exception.ToString()</div>
+}

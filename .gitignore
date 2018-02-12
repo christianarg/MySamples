@@ -219,3 +219,7 @@ pip-log.txt
 /HttpClientHell/packages
 /HttpClientHell/.vs
 /SamplesInUnitTests/.vs/SamplesTestProyect/v15/Server/sqlite3
+/EfPerformance/packages
+/EfPerformance/EfPerformance/local.connectionstrings.config
+/EfPerformance/.vs/EfPerformance/v15/Server/sqlite3
+/EfPerformance/.vs/config

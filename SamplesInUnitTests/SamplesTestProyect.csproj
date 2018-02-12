@@ -127,6 +127,7 @@
     <Compile Include="Redis\RedisTest.cs" />
     <Compile Include="Ref\RefTest.cs" />
     <Compile Include="CsScript\Scripting.cs" />
+    <Compile Include="RemoveSqlParameters\RemoveSqlParametersFromQueryTextTest.cs" />
     <Compile Include="SortedListTests\SortedListTests.cs" />
     <Compile Include="StringEnums\StringEnumTests.cs" />
     <Compile Include="String\StringTests.cs" />

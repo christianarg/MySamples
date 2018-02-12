@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -15,11 +16,36 @@ namespace ApiConsumer.Controllers
 
         public async Task<ActionResult> Index()
         {
-            //ViewBag.Values = await RequestWithStaticHttpClient();
-            ViewBag.Values = await RequestWithHttpClientFromFactory();
+
+            try
+            {
+                if (UseHttpClientFactory())
+                {
+                    ViewBag.Values = await RequestWithHttpClientFromFactory();
+                }
+                else
+                {
+                    ViewBag.Values = await RequestWithStaticHttpClient();
+                }
+            }
+            catch (Exception ex)
+            {
+
+                ViewBag.Exception = ex;
+            }
+
             return View();
         }
 
+        private bool UseHttpClientFactory()
+        {
+            string useClientFactoryStr = ConfigurationManager.AppSettings["useHttpClientFactory"];
+            if (bool.TryParse(useClientFactoryStr, out bool useClientFactory))
+            {
+                return useClientFactory;
+            }
+            return false;
+        }
         //public async Task<ActionResult> Index()
         //{
         //    //ViewBag.Values = await RequestWithStaticHttpClient();
@@ -29,18 +55,22 @@ namespace ApiConsumer.Controllers
 
         private async Task<string> RequestWithHttpClientFromFactory()
         {
-            var httpClient = HttpClientFactory.CreateHttpClient(new Uri("http://local.webapi.com"));
+            var httpClient = HttpClientFactory.CreateHttpClient(GetApiBaseUrl());
             var values = await httpClient.GetAsync("/api/values");
             return await values.Content.ReadAsStringAsync();
         }
 
+        private static Uri GetApiBaseUrl()
+        {
+            return new Uri(ConfigurationManager.AppSettings["apiurl"]);
+        }
 
         private async Task<string> RequestWithStaticHttpClient()
         {
             if(staticHttpClient == null)
             {
                 staticHttpClient = new HttpClient();
-                staticHttpClient.BaseAddress = new Uri("http://local.webapi.com");
+                staticHttpClient.BaseAddress = GetApiBaseUrl();
             }
             
             var values = await staticHttpClient.GetAsync("/api/values");
