@@ -226,3 +226,4 @@ pip-log.txt
 /HttpClientVsRestSharp/.vs/HttpClientVsRestSharp/v15/Server/sqlite3
 /SerilogRD/.vs/SerilogRD/v15/Server/sqlite3
 /SerilogRD/packages
+/HttpClientvsRestSharp/packages
