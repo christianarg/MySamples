@@ -56,6 +56,9 @@ namespace EfPerformance
                 case "8":
                     ExecuteNewContextPerBatchWithAddRange();
                     break;
+                case "9":
+                    ExecuteNewContextPerRecordDisableChangeTracker();
+                    break;
                 default:
                     break;
             }
@@ -75,6 +78,23 @@ namespace EfPerformance
                 }
             });
         }
+
+        private static void ExecuteNewContextPerRecordDisableChangeTracker()
+        {
+            ExecuteTest("ExecuteNewContextPerRecordDisableChangeTracker", () =>
+            {
+                foreach (var myTable in listOfMyTables)
+                {
+                    using (var dbContext = new MyDbContext())
+                    {
+                        dbContext.Configuration.AutoDetectChangesEnabled = false;
+                        AddMyTable(myTable, dbContext);
+                        dbContext.SaveChanges();
+                    }
+                }
+            });
+        }
+
 
         private static void ExecuteNewContextPerBatchWithAddRange()
         {

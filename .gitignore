@@ -223,3 +223,6 @@ pip-log.txt
 /EfPerformance/EfPerformance/local.connectionstrings.config
 /EfPerformance/.vs/EfPerformance/v15/Server/sqlite3
 /EfPerformance/.vs/config
+/HttpClientVsRestSharp/.vs/HttpClientVsRestSharp/v15/Server/sqlite3
+/SerilogRD/.vs/SerilogRD/v15/Server/sqlite3
+/SerilogRD/packages
