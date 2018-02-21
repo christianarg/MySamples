@@ -227,3 +227,5 @@ pip-log.txt
 /SerilogRD/.vs/SerilogRD/v15/Server/sqlite3
 /SerilogRD/packages
 /HttpClientvsRestSharp/packages
+/AsyncConfigureAwaitLifeIsShit/.vs
+/AsyncConfigureAwaitLifeIsShit/packages
