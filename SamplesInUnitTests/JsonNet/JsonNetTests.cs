@@ -41,7 +41,26 @@ namespace SamplesTestProyect.JsonNet
             Assert.AreNotEqual(foo.EstaNo, deserialized.EstaNo);
             Assert.IsNull(deserialized.EstaNo);
         }
+
+		[TestMethod]
+		public void CamelCasePropertiesTest()
+		{
+			// ARRANGE
+			var foo = new Foo { Bar = "La concha de tu madre" };
+			// ACT
+			var serializedFoo = JsonConvert.SerializeObject(foo, new JsonSerializerSettings { ContractResolver = new CamelCasePropertyNamesContractResolver() });
+			var deserializedFoo = JsonConvert.DeserializeObject<Foo>(serializedFoo);
+			
+			// ASSERT
+			Assert.IsTrue(serializedFoo.Contains("bar:"));	// La propiedad es camelcase
+			Assert.AreEqual(foo.Bar, deserializedFoo.Bar);	// Aunque deserializemos sin pasar el contractResolver, la clase se deserializa correctamente
+
+		}
     }
+	public class Foo
+	{
+		public string Bar { get; set; }
+	}
 
     public class ClassWithShouldIgnore
     {

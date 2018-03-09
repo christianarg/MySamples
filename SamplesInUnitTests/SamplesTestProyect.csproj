@@ -119,6 +119,8 @@
     <Compile Include="Mongo\MongoTests.cs" />
     <Compile Include="ParalellForeach\ParalellForeachTest.cs" />
     <Compile Include="Partials\Partials.cs" />
+    <Compile Include="Patterns\ChainOfResponsability.cs" />
+    <Compile Include="Patterns\PipesAndFilters.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Iterator\IteratorTest1.cs" />
     <Compile Include="EFRefresh\UnitTest3.cs" />
