@@ -10,9 +10,13 @@ using System.Numerics.Tensors;
 //SameArrayAnyDimension([1, 2, 3, 4]);
 
 
-CosineSimilarity([1, 1], [1, 2]);
-CosineSimilarity([1, 1], [100, 100]);
-CosineSimilarity([100, 100], [1, 1]);
+CosineSimilarity([100, 100], [1, 1]);    // Result: 1; Almost identical => "they point in the same direction"
+CosineSimilarity([1, 100], [100, 1]);    // Result: 0,019998003; Diferent => "they point in different directions"
+CosineSimilarity([1, 100], [50, 100]);   // Result: 0,89885443 ; Similar => "they point in similar directions"
+CosineSimilarity([1, 100], [10, 5]);   // Result: ; Similar => "they point in similar directions"
+
+CosineSimilarity([1, 100], [1, -100]);   // Result: -0,99980015; VERY Diferent => "they point in VERY different directions"
+
 
 void Same2DimensionalArray()
 {
@@ -38,6 +42,7 @@ void SameArrayAnyDimension(float[] vector)
     Console.WriteLine($"SameArrayAnyDimension: {VectorToString(vector)} Result: {result}");
 }
 
+// What matters in cosine similarity is the "direction" of the vector, the angle between vectors, not their magnitude.
 void CosineSimilarity(float[] x, float[] y)
 {
     var result = TensorPrimitives.CosineSimilarity(x: x, y: y);
