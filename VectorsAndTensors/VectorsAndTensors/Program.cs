@@ -10,10 +10,12 @@ using System.Numerics.Tensors;
 //SameArrayAnyDimension([1, 2, 3, 4]);
 
 
+// Easy way to represent vectors in 2D space https://www.desmos.com/calculator ex: (100t, 100t)
+
 CosineSimilarity([100, 100], [1, 1]);    // Result: 1; Almost identical => "they point in the same direction"
 CosineSimilarity([1, 100], [100, 1]);    // Result: 0,019998003; Diferent => "they point in different directions"
 CosineSimilarity([1, 100], [50, 100]);   // Result: 0,89885443 ; Similar => "they point in similar directions"
-CosineSimilarity([1, 100], [10, 5]);   // Result: ; Similar => "they point in similar directions"
+CosineSimilarity([1, 100], [10, 5]);     // Result: 0,4561351; kinda similar/diferent => "they point in kinda similar/diferent directions"
 
 CosineSimilarity([1, 100], [1, -100]);   // Result: -0,99980015; VERY Diferent => "they point in VERY different directions"
 
