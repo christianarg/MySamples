@@ -1,13 +1,18 @@
 ﻿#pragma warning disable CS8321 // Local function is declared but never used
+// Pruebas de https://github.com/dotnet/runtime/blob/main/src/libraries/System.Numerics.Tensors/src/System/Numerics/Tensors/netcore/TensorPrimitives.CosineSimilarity.cs
 using System.Numerics.Tensors;
-using System.Text;
 
-Same2DimensionalArray();
-Same3DimensionalArray();
+//Same2DimensionalArray();
+//Same3DimensionalArray();
 
-SameArrayAnyDimension([1, 2]);
-SameArrayAnyDimension([1,2,3]);
-SameArrayAnyDimension([1, 2, 3, 4]);
+//SameArrayAnyDimension([1, 2]);
+//SameArrayAnyDimension([1,2,3]);
+//SameArrayAnyDimension([1, 2, 3, 4]);
+
+
+CosineSimilarity([1, 1], [1, 2]);
+CosineSimilarity([1, 1], [100, 100]);
+CosineSimilarity([100, 100], [1, 1]);
 
 void Same2DimensionalArray()
 {
@@ -31,6 +36,17 @@ void SameArrayAnyDimension(float[] vector)
     var result = TensorPrimitives.CosineSimilarity(x: vector, y: vector);
 
     Console.WriteLine($"SameArrayAnyDimension: {VectorToString(vector)} Result: {result}");
+}
+
+void CosineSimilarity(float[] x, float[] y)
+{
+    var result = TensorPrimitives.CosineSimilarity(x: x, y: y);
+    
+    Console.WriteLine("*************CosineSimilarity*********");
+    Console.WriteLine($"x: {VectorToString(x)}");
+    Console.WriteLine($"y: {VectorToString(y)}");
+    Console.WriteLine($"Result: {result}");
+    Console.WriteLine();
 }
 
 string VectorToString(float[] array)
